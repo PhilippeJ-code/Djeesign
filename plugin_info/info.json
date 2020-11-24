@@ -12,7 +12,7 @@
 	"changelog" : "https://jeedom.github.io/plugin-template/#language#/changelog",
 	"documentation" : "https://jeedom.github.io/plugin-template/#language#/",
 	"link" : {
-		"forum":"Lien vers le forum",
+		"forum":"Lien vers le forum"
 	},
 	"language" : ["fr_FR"],
 	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4"]
