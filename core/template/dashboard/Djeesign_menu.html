@@ -1,0 +1,60 @@
+<!--
+
+  Html
+    
+    Classe eqLogic-widget eqLogic allowResize
+      Pas indispensable mais sans ce div, pas de paramètres d'affichage sur click droit
+      Il impose la couleur du texte, donc emploi de !important dans notre css pour outrepasser
+
+-->
+
+<script type="text/javascript" src="plugins/Djeesign/core/template/DjeesignInit.js"></script>
+<link rel="stylesheet" href="plugins/Djeesign/core/template/dashboard/Djeesign_#visuel#.css" />
+
+<div class="eqLogic-widget eqLogic allowResize"
+  style="width: #width#;height: #height#;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style# "
+  data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#">
+
+  <div class='classDjeesignMenu'>
+    <ul id='ul-container-#uid#'>
+    </ul>
+  </div>
+
+</div>
+
+<!--
+
+  Script
+
+    On récupère les infos stockées par OnHtml et on construit le menu sur document prêt et changement du document
+
+-->
+<script>
+
+  // Document prêt, on construit le menu
+  //
+  $(document).ready(function () {
+    initDisplay#uid#();
+   });
+
+  // Document modifié, on construit le menu
+  //
+  $(document).change(function (e) {
+    if (e.target.dataset.eqlogic_uid === "#uid#") {
+      initDisplay#uid#();
+    }
+  });
+
+  // On construit le menu avec les infos de configuration
+  //
+  function initDisplay#uid#() {
+    var parametres = {};
+
+    parametres.uid = "#uid#";
+    parametres.listeIds = "#listeIds#";
+    parametres.listeIcones = "#listeIcones#";
+    parametres.listeNoms = "#listeNoms#";
+
+    initializeMenuHtml(parametres);
+  }
+</script>

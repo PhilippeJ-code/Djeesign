@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="plugins/Djeesign/core/template/dashboard/Djeesign_#visuel#.css" />
+
+<div class="eqLogic eqLogic-widget allowResize allowReorderCmd #custom_layout# #eqLogic_class#" data-eqType="#eqType#"
+  data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#"
+  data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#"
+  style="width: #width#;height: #height#;#style#">
+
+  <div class="classDjeesignPourtour">
+  </div>
+  
+  <div class="classDjeesignFondTitre">
+  </div>
+
+  <div id="IdDjeesignTitre#uid#" class="classDjeesignTitre">
+    Titre
+  </div>
+
+  <div id="IdDjeesignIcone#uid#" class="classDjeesignIcone">
+  </div>
+
+</div>
+
+<script type="text/javascript">
+
+  $(document).change(function (e) {
+    if (e.target.dataset.eqlogic_uid === "#uid#") {
+      initDisplay#uid#();
+    }
+  });
+
+  $(document).ready(function () {
+    initDisplay#uid#();
+  });
+
+  function initDisplay#uid#()
+  {
+
+    // Titre du cadre
+    //
+    let titre = "#titre#";
+    let divTitre = $('#IdDjeesignTitre#uid#');
+    divTitre.empty();
+    divTitre.append(titre);
+
+    // Icone du cadre
+    //
+    let icone = "#icone#";
+    icone = icone.trim();
+    let divIcone = $('#IdDjeesignIcone#uid#');
+    divIcone.empty();
+    if (icone !== "") {
+      let imgIcone = "<img src=\"data/img/" + icone + "\" height=100% width=100%>"
+      divIcone.append(imgIcone);
+    }
+
+  }
+
+</script>

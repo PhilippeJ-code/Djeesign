@@ -1,0 +1,141 @@
+/*
+  Styles du cadre
+*/
+.classDjeesignPourtour
+{
+    width:100%;
+    height:100%;     
+    position:absolute;
+    background-color: rgb(255,255,255);            
+    border: 2px solid #333333;
+}
+
+.classDjeesignFondTitre
+{
+    width:100%;                         
+    height:40px;
+    position:absolute;
+    border: 2px solid #333333;
+    background: #f96e5b;
+}
+
+.classDjeesignTitre
+{
+    width:100%;                         
+    position:absolute;
+    margin-top: 8px;
+    text-align: center;
+    font-family:Arial;
+    font-weight:normal;
+    font-size:16px;
+}
+
+.classDjeesignIcone
+{
+    width:30px;
+    height:30px;
+    position:absolute;
+    margin-top:3px;
+    margin-left:3px;
+}
+
+/*
+  Styles du menu
+*/
+.classDjeesignMenu {
+    background: #f96e5b;
+    width: auto;
+  }
+
+  .classDjeesignMenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    display: block;
+    zoom: 1;
+  }
+
+  .classDjeesignMenu ul:before {
+    content: '';
+    display: block;
+  }
+  
+  .classDjeesignMenu ul:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  .classDjeesignMenu ul li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+
+  .classDjeesignMenu ul li a {
+    height: 40px;
+    color: #ffffff !important;
+    text-decoration: none;
+    display: block;
+    padding: 15px 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    position: relative;
+    -webkit-transition: color .25s;
+    -moz-transition: color .25s;
+    -ms-transition: color .25s;
+    -o-transition: color .25s;
+    transition: color .25s;
+  }
+
+  .classDjeesignMenu ul li a:hover {
+    color: #333333;
+  }
+
+  .classDjeesignMenu ul li a:hover:before {
+    width: 100%;
+  }
+
+  .classDjeesignMenu ul li a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: -3px;
+    top: 19px;
+    height: 6px;
+    width: 6px;
+    background: #ffffff;
+    opacity: .5;
+  }
+
+  .classDjeesignMenu ul li a:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background: #333333;
+    -webkit-transition: width .25s;
+    -moz-transition: width .25s;
+    -ms-transition: width .25s;
+    -o-transition: width .25s;
+    transition: width .25s;
+  }
+
+  .classDjeesignMenu ul li.active a {
+    color: #333333;
+  }
+
+  .classDjeesignMenu ul li.active a:before {
+    width: 100%;
+  }
+
+  .classDjeesignMenu.align-right li:first-child a:after {
+    display: none;
+  }
+

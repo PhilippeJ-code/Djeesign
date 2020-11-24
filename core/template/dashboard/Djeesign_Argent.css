@@ -1,0 +1,174 @@
+/*
+  Styles du cadre
+*/
+.classDjeesignPourtour
+{
+    width:100%;
+    height:100%;     
+    position:absolute;
+    background-color: rgb(255,255,255);            
+    border: 2px solid #133e40;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.classDjeesignFondTitre
+{
+    width:100%;                         
+    height:40px;
+    position:absolute;
+     border: 2px solid #133e40;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    background: #566171;
+    background: -moz-linear-gradient(top, #6e7d8f 0%, #404854 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6e7d8f), color-stop(100%, #404854));
+    background: -webkit-linear-gradient(top, #6e7d8f 0%, #404854 100%);
+    background: -o-linear-gradient(top, #6e7d8f 0%, #404854 100%);
+    background: -ms-linear-gradient(top, #6e7d8f 0%, #404854 100%);
+    background: linear-gradient(top, #6e7d8f 0%, #404854 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@top-color', endColorstr='@bottom-color', GradientType=0);
+}
+
+.classDjeesignTitre
+{
+    width:100%;                         
+    position:absolute;
+    margin-top: 8px;
+    text-align: center;
+    font-family:Arial;
+    font-weight:normal;
+    font-size:16px;     
+}
+
+.classDjeesignIcone
+{
+    width:30px;
+    height:30px;
+    position:absolute;
+    margin-top:3px;
+    margin-left:3px;
+}
+
+/*
+  Styles du menu
+*/
+.classDjeesignMenu {
+  position:absolute;
+  margin-top: 3px;
+  border: 1px solid #133e40;
+  border-radius: 5px;
+  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.classDjeesignMenu ul,
+.classDjeesignMenu li,
+.classDjeesignMenu a {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1;
+}
+
+.classDjeesignMenu ul {
+  zoom: 1;
+  background-color: #566171;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #6e7d8f), color-stop(1, #404854));
+  background-image: -webkit-linear-gradient(top, #6e7d8f, #404854);
+  background-image: -moz-linear-gradient(top, #6e7d8f, #404854);
+  background-image: -o-linear-gradient(top, #6e7d8f, #404854);
+  background-image: linear-gradient(#6e7d8f, #404854);
+  padding: 5px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.classDjeesignMenu ul:before {
+  content: '';
+  display: block;
+}
+
+.classDjeesignMenu ul:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.classDjeesignMenu li {
+  float: left;
+  margin: 0 5px 0 0;
+  border: 1px solid transparent;
+}
+
+.classDjeesignMenu li a {
+  background-color: #c2c2c2;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f1f1f1), color-stop(1, #a8a8a8));
+  background-image: -webkit-linear-gradient(top, #f1f1f1, #a8a8a8);
+  background-image: -moz-linear-gradient(top, #f1f1f1, #a8a8a8);
+  background-image: -o-linear-gradient(top, #f1f1f1, #a8a8a8);
+  background-image: linear-gradient(#f1f1f1, #a8a8a8);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 8px 15px 9px 15px;
+  display: block;
+  text-decoration: none;
+  color: #3c444d !important;
+  border: 1px solid #133e40;
+  font-size: 12px;
+}
+
+.classDjeesignMenu li.active a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  background-color: #c46a60;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ef7260), color-stop(1, #b04c41));
+  background-image: -webkit-linear-gradient(top, #ef7260, #b04c41);
+  background-image: -moz-linear-gradient(top, #ef7260, #b04c41);
+  background-image: -o-linear-gradient(top, #ef7260, #b04c41);
+  background-image: linear-gradient(#ef7260, #b04c41);
+  border: 1px solid #133e40;
+  }
+
+.classDjeesignMenu li:hover a {
+  background-color: #e2e2e2;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #c8c8c8));
+  background-image: -webkit-linear-gradient(top, #ffffff, #c8c8c8);
+  background-image: -moz-linear-gradient(top, #ffffff, #c8c8c8);
+  background-image: -o-linear-gradient(top, #ffffff, #c8c8c8);
+  background-image: linear-gradient(#ffffff, #c8c8c8);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  border: 1px solid #133e40;
+ }
+
+.classDjeesignMenu>ul>li.active:hover>a {
+  background-color: #cb7b72;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f49b8e), color-stop(1, #bd584d));
+  background-image: -webkit-linear-gradient(top, #f49b8e, #bd584d);
+  background-image: -moz-linear-gradient(top, #f49b8e, #bd584d);
+  background-image: -o-linear-gradient(top, #f49b8e, #bd584d);
+  background-image: linear-gradient(#f49b8e, #bd584d);
+}
+

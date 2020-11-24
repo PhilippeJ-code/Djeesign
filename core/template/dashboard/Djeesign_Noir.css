@@ -1,0 +1,116 @@
+/*
+  Styles du cadre
+*/
+.classDjeesignPourtour
+{
+    width:100%;
+    height:100%;      
+    position:absolute;
+    background-color: rgb(255,255,255);            
+    border: 2px solid #080808;
+}
+
+.classDjeesignFondTitre
+{
+    width:100%;                         
+    height:40px;
+    position:absolute;
+    border: 2px solid #080808;
+    background: #3f3f3f;
+}
+
+.classDjeesignTitre
+{
+    width:100%;                         
+    position:absolute;
+    margin-top: 8px;
+    text-align: center;
+    font-family:Arial;
+    font-weight:normal;
+    font-size:16px;
+}
+
+.classDjeesignIcone
+{
+    width:30px;
+    height:30px;
+    position:absolute;
+    margin-top:3px;
+    margin-left:3px;
+}
+
+/*
+  Styles du menu
+*/
+.classDjeesignMenu {
+  display: block;
+  border: 1px solid;
+  border-radius: 5px;
+  width: auto;
+  border-color: #080808;
+  margin: 0;
+  padding: 0;
+  background: #3f3f3f;
+
+}
+
+.classDjeesignMenu ul,
+.classDjeesignMenu li,
+.classDjeesignMenu a {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1;
+}
+
+.classDjeesignMenu ul {
+  list-style: inside none;
+  margin: 0;
+  padding: 0;
+}
+
+.classDjeesignMenu ul:before {
+  content: '';
+  display: block;
+}
+
+.classDjeesignMenu ul:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.classDjeesignMenu li {
+  list-style: inside none;
+  float: left;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.classDjeesignMenu li a {
+  height: 42px;
+  outline: none;
+  display: block;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+  font-weight: 700;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-right: 1px solid #080808;
+  color: #ffffff !important;
+  padding: 12px 20px;
+}
+
+.classDjeesignMenu li.active a {
+  background: #080808;
+}
+
+.classDjeesignMenu li:hover a {
+  background: #080808;
+}
+
