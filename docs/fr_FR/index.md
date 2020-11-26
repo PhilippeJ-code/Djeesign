@@ -9,7 +9,7 @@
     sera appliqué aux menus et tuiles, les différents visuels correspondent aux fichiers css qui sont placés
     dans Plugins\Djeesign\core\template\dashboard\
 
-![Logo plugin](../images/configuration.png "Configuration")
+![Configuration](../images/configuration.png "Configuration")
 
     Vous désirez créer votre  propre visuel, il suffit de placer un nouveau fichier css dans ce répertoire 
     pour qu'il soit pris en compte dans la configuration du plugin. Pour que le nom du visuel s'affiche 
@@ -27,6 +27,8 @@
         Cet équipement permet la création d'une tuile qui pourra être placé sur un design, on peut définir
         le titre de la tuile ainsi que le nom d'une icone
 
+![Tuile](../images/tuile.png "Tuile")
+
 ### 2.b. Menu
 
         Cet équipement permet la création d'un menu qui pourra être placé sur un design, on peut définir 
@@ -34,3 +36,5 @@
         d'icones correspondant à ces points de menu.
 
         Notez que le point de menu correspondant au design affiché est automatiquement sélectionné.
+
+![Menu](../images/menu.png "Menu")
