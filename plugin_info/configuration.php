@@ -37,17 +37,19 @@ if (!isConnect()) {
             $i=0;
             while ($file = readdir($dp)) {
                 $len = strlen($file);
-                $ext = '';
-                if ($len >= 3) {
-                    $ext = substr($file, $len-3, 3);
-                }
-                if ($ext === 'css') {
-                    $posUnderscore = strrpos($file, '_');
-                    $posPoint = strrpos($file, '.');
-                    if ($posUnderscore < $posPoint) {
-                        $template = substr($file, $posUnderscore+1, $posPoint-$posUnderscore-1);
-                        $ListTemplates[$i]=$template;
-                        $i++;
+                if ($len > 13) {
+                    $prf = substr($file, 0, 9);
+                    if ($prf === "Djeesign_") {
+                        $ext = substr($file, $len-4, 4);
+                        if ($ext === '.css') {
+                            $posUnderscore = strrpos($file, '_');
+                            $posPoint = strrpos($file, '.');
+                            if ($posUnderscore < $posPoint) {
+                                $template = substr($file, $posUnderscore+1, $posPoint-$posUnderscore-1);
+                                $ListTemplates[$i]=$template;
+                                $i++;
+                            }
+                        }
                     }
                 }
             }

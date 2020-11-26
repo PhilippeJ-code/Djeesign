@@ -6,7 +6,7 @@
     width:100%;
     height:100%;     
     position:absolute;
-   background-color: rgb(255,255,255);            
+    background-color: rgb(255,255,255);            
     border: 2px solid #444444;
 }
 
@@ -43,10 +43,10 @@
   Styles du menu
 */
 .classDjeesignMenu {
-  width: auto;
-  border-bottom: 3px solid #47c9af;
-  font-family: Raleway, sans-serif;
-  line-height: 1;
+    width: auto;
+    border-bottom: 3px solid #47c9af;
+    font-family: Raleway, sans-serif;
+    line-height: 1;
 }
 
 .classDjeesignMenu,
@@ -60,8 +60,6 @@
   line-height: 1;
   display: block;
   position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -91,10 +89,6 @@
   font-weight: 400;
   text-decoration: none;
   color: #444444 !important;
-  -webkit-transition: all .2s ease;
-  -moz-transition: all .2s ease;
-  -ms-transition: all .2s ease;
-  -o-transition: all .2s ease;
   transition: all .2s ease;
   margin-right: -4px;
 }
@@ -116,13 +110,7 @@
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   content: "";
-  -webkit-transition: all .2s ease;
-  -o-transition: all .2s ease;
   transition: all .2s ease;
-  -webkit-transform: perspective(5px) rotateX(2deg);
-  -webkit-transform-origin: bottom;
-  -moz-transform: perspective(5px) rotateX(2deg);
-  -moz-transform-origin: bottom;
   transform: perspective(5px) rotateX(2deg);
   transform-origin: bottom;
 }

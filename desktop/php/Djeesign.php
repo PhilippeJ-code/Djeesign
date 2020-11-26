@@ -119,7 +119,7 @@
               <div class="col-sm-3">
                 <select required class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="typeDesign">
                   <option value="" disabled selected>{{Sélectionnez un type de design}}</option>
-                  <option value="cadre">Cadre( défaut )</option>
+                  <option value="cadre">Tuile( défaut )</option>
                   <option value="menu">Menu</option>
                 </select>
               </div>
@@ -134,7 +134,7 @@
                 <label class="col-sm-3 control-label">{{Titre}}</label>
                 <div class="col-sm-3">
                   <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="titre"
-                    placeholder="Titre du cadre" />
+                    placeholder="Titre de la tuile" />
                 </div>
               </div>
 
@@ -142,7 +142,7 @@
                 <label class="col-sm-3 control-label">{{Icone}}</label>
                 <div class="col-sm-3">
                   <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="icone"
-                    placeholder="Icone du cadre" />
+                    placeholder="Icone de la tuile" />
                 </div>
               </div>
 

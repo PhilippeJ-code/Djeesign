@@ -47,7 +47,7 @@
       }
       if (image !== "")
       {
-        imageSrc ="<img src=\"data/img/" + image + "\" height=16px width=16px> "
+        imageSrc ="<img src=\"data/img/" + image + "\" height=16px width=16px>"
       }
 
       if (item == planId)
