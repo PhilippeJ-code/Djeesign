@@ -1,7 +1,7 @@
 {
 	"id" : "Djeesign",
 	"name" : "Djeesign",
-	"description" : "Design Jeedom",
+	"description" : "Ce plugin permet de définir l'aspect visuel ( menu et tuiles ) des designs.Vous voulez en changer, un clic suffit",
 	"licence" : "AGPL",
 	"author" : "PhilippeJ",
 	"require" : "4.0",
@@ -9,8 +9,8 @@
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,
 	"maxDependancyInstallTime" : 0,
-	"changelog" : "https://jeedom.github.io/plugin-template/#language#/changelog",
-	"documentation" : "https://jeedom.github.io/plugin-template/#language#/",
+	"changelog" : "https://github.com/PhilippeJ-code/Djeesign/blob/master/docs/#language#/changelog.md",
+	"documentation" : "https://github.com/PhilippeJ-code/Djeesign/blob/master/docs/#language#/index.md",
 	"link" : {
 		"forum":"Lien vers le forum"
 	},
