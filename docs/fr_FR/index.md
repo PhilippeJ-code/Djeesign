@@ -44,5 +44,5 @@
         Cet équipement permet la création d'un graphe minimaliste, on peut spécifier
         deux commandes infos ( par exemple une consigne et la température mesurée ).
 
-![Graphe](../images/Graphe.png "Graphe")
+![Graphe](../images/graph.png "Graphe")
 
