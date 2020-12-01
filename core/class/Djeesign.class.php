@@ -149,21 +149,13 @@
               $cmd = cmd::byId(str_replace('#', '', $cmdGraphe1));
               if (is_object($cmd)) {
                   $histoGraphe1 = $cmd->getHistory($startTime);
-                  $n = 0;
                   foreach ($histoGraphe1 as $row) {
-                      $n++;
                       $datetime = $row->getDatetime();
                       $ts = strtotime($datetime);
                       $value = $row->getValue();
   
                       $listeHistoGraphe1 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
                         .date("d", $ts).",".date("H", $ts).",".date("i", $ts).",".date("s", $ts)."),".$value."],\n";
-                  }
-                  if (n == 0) {
-                    $ts = strtotime($startTime);
-                    $value = $cmd->execCmd();
-                    $listeHistoGraphe1 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
-                    .date("d", $ts).",".date("H", $ts).",".date("i", $ts).",".date("s", $ts)."),".$value."],\n";
                   }
                   $ts = time();                  
                   $value = $cmd->execCmd();
@@ -177,21 +169,13 @@
               $cmd = cmd::byId(str_replace('#', '', $cmdGraphe2));              
               if (is_object($cmd)) {
                   $histoGraphe2 = $cmd->getHistory($startTime);
-                  $n = 0;
                   foreach ($histoGraphe2 as $row) {
                       $datetime = $row->getDatetime();
                       $ts = strtotime($datetime);
                       $value = $row->getValue();
                       $listeHistoGraphe2 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
                       .date("d", $ts).",".date("H", $ts).",".date("i", $ts).",".date("s", $ts)."),".$value."],\n";
-                      $n++;
                   }                  
-                  if (n == 0) {
-                    $ts = strtotime($startTime);
-                    $value = $cmd->execCmd();
-                    $listeHistoGraphe1 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
-                    .date("d", $ts).",".date("H", $ts).",".date("i", $ts).",".date("s", $ts)."),".$value."],\n";
-                  }
                   $ts = time();
                   $value = $cmd->execCmd();
                   $listeHistoGraphe2 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
@@ -200,6 +184,9 @@
               }
               $replace["#listeHistoGraphe2#"] = $listeHistoGraphe2;
               $replace["#unite#"] = $unite;
+
+              $replace["#idCmdGraphe1#"] = str_replace('#', '', $cmdGraphe1);
+              $replace["#idCmdGraphe2#"] = str_replace('#', '', $cmdGraphe2);
           }
           return template_replace($replace, getTemplate('core', $version, 'Djeesign_' . $typeDesign, 'Djeesign'));
       }

@@ -1,6 +1,6 @@
 # Plugin Djeesign pour Jeedom
 
-    Ce plugin permet de définir l'aspect visuel ( menu et tuiles ) des designs.
+    Ce plugin permet de définir l'aspect visuel ( menu, tuiles et graphes ) des designs.
     Vous voulez en changer, un clic suffit
 
 ## 1. Configuration du plugin
@@ -14,11 +14,11 @@
     Vous désirez créer votre  propre visuel, il suffit de placer un nouveau fichier css dans ce répertoire 
     pour qu'il soit pris en compte dans la configuration du plugin. Pour que le nom du visuel s'affiche 
     correctement dans la configuration, formatez le nom du fichier css comme suit :
-        Ex : Djeesign_Argent.css --> Argent sera affiché dans la configuration
+        Djeesign_Argent.css --> Argent sera affiché dans la configuration
 
 ## 2. Configuration des équipements
 
-    Le premier choix à effectuer sera de choisir le type d'équipement que l'on désire créer ( menu ou tuile ).
+    Le premier choix à effectuer sera de choisir le type d'équipement que l'on désire créer ( menu, tuile ou graphe ).
     N'oubliez pas d'activer l'équipement pour qu'il soit visible sur le design
     Les icones doivent se trouver dans le répertoire data\img\
     
@@ -42,7 +42,8 @@
 ### 2.c. Graphe
 
         Cet équipement permet la création d'un graphe minimaliste, on peut spécifier
-        deux commandes infos ( par exemple une consigne et la température mesurée ).
+        deux commandes infos historisées ( par exemple une consigne et la température mesurée ) qui seront
+        affichées sur le graphe. Le graphe sera mis à jour automatiquement sur réception des nouvelles valeurs.
 
 ![Graphe](../images/graph.png "Graphe")
 
