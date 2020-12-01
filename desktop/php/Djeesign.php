@@ -67,6 +67,7 @@
         <br />
         <form class="form-horizontal">
           <fieldset>
+            <legend><i class="fas fa-wrench"></i> {{Général}}</legend>
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Nom de l'équipement}}</label>
               <div class="col-sm-3">
@@ -114,6 +115,7 @@
               Mes options
                 Choix du type de design Cadre ou Menu
             -->
+            <legend><i class="fas fa-cogs"></i> {{Paramètres}}</legend>
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Type}}</label>
               <div class="col-sm-3">
@@ -121,6 +123,7 @@
                   <option value="" disabled selected>{{Sélectionnez un type de design}}</option>
                   <option value="cadre">Tuile( défaut )</option>
                   <option value="menu">Menu</option>
+                  <option value="graphe">Graphe</option>
                 </select>
               </div>
             </div>
@@ -169,6 +172,31 @@
                 </div>
               </div>
 
+            </div>
+
+            <!--
+              Options du graphe
+                Id de la commande info
+            -->
+            <div id="typeDesignGraphe">
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Commande info du graphe - 1}}</label>
+                <div class="col-md-6 input-group">
+                  <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
+                    data-l2key="cmdGraphe1"></input>
+                  <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
+                    data-input="cmdGraphe1"><i class="fas fa-list-alt"></i></a>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Commande info du graphe - 2}}</label>
+                <div class="col-md-6 input-group">
+                  <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
+                    data-l2key="cmdGraphe2"></input>
+                  <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
+                    data-input="cmdGraphe2"><i class="fas fa-list-alt"></i></a>
+                </div>
+              </div>
             </div>
 
           </fieldset>

@@ -55,18 +55,33 @@ $(document).ready(function () {
 
     $(".eqLogicAttr[data-l2key=typeDesign]").change(function () {
         if ($(this).value() !== null) {
-            if ($(this).value() === "cadre") {
-                $("#typeDesignCadre").css("display", "block");
-                $("#typeDesignMenu").css("display", "none");
-            }
-            else {
+            if ($(this).value() === "menu") {
                 $("#typeDesignCadre").css("display", "none");
                 $("#typeDesignMenu").css("display", "block");
+                $("#typeDesignGraphe").css("display", "none");
+            }
+            else if ($(this).value() === "graphe") {
+                $("#typeDesignCadre").css("display", "none");
+                $("#typeDesignMenu").css("display", "none");
+                $("#typeDesignGraphe").css("display", "block");
+            }
+            else {
+                $("#typeDesignCadre").css("display", "block");
+                $("#typeDesignMenu").css("display", "none");
+                $("#typeDesignGraphe").css("display", "none");
             }
         }
         else {
             $("#typeDesignCadre").css("display", "block");
             $("#typeDesignMenu").css("display", "none");
+            $("#typeDesignGraphe").css("display", "none");
         }
     });
+    $(".listEquipementInfo").click(function () {
+        var el = $(this);
+        jeedom.cmd.getSelectModal({cmd: {type: 'info'}}, function (result) {
+          var calcul = el.closest('div').find('.eqLogicAttr[data-l1key=configuration][data-l2key=' + el.data('input') + ']');
+          calcul.atCaret('insert', result.human);
+        });
+      });
 });

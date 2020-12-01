@@ -94,7 +94,7 @@
 
           $visuel = config::byKey('visuel', 'Djeesign');
           $typeDesign = $this->getConfiguration('typeDesign');
-          if (($typeDesign !== "cadre") && ($typeDesign !== "menu")) {
+          if (($typeDesign !== "cadre")  && ($typeDesign !== "menu") && ($typeDesign !== "graphe")) {
               $typeDesign = "cadre";
           }
     
@@ -102,37 +102,105 @@
     
           // Cadre
           //
-          $titre = $this->getConfiguration('titre');
-          $icone = $this->getConfiguration('icone');
+          if ($typeDesign === "cadre") {
+              $titre = $this->getConfiguration('titre');
+              $icone = $this->getConfiguration('icone');
     
-          $replace["#titre#"] = $titre;
-          $replace["#icone#"] = $icone;
+              $replace["#titre#"] = $titre;
+              $replace["#icone#"] = $icone;
+          }
 
           // Menu
           //
-          $listeIds = $this->getConfiguration('listeIds');
-          $listeIcones = $this->getConfiguration('listeIcones');
+          if ($typeDesign === "menu") {
+              $listeIds = $this->getConfiguration('listeIds');
+              $listeIcones = $this->getConfiguration('listeIcones');
  
-          $listeNoms = '';
-          $ids = explode(';', $listeIds);
+              $listeNoms = '';
+              $ids = explode(';', $listeIds);
 
-          foreach ($ids as $id) {
-              if ($listeNoms != "") {
-                  $listeNoms .= ";";
-              }
+              foreach ($ids as $id) {
+                  if ($listeNoms != "") {
+                      $listeNoms .= ";";
+                  }
 
-              $ph = planHeader::byId($id);
-              if ($ph != null) {
-                  $listeNoms .= $ph->getName();
-              } else {
-                  $listeNoms .= "Id Inconnu";
+                  $ph = planHeader::byId($id);
+                  if ($ph != null) {
+                      $listeNoms .= $ph->getName();
+                  } else {
+                      $listeNoms .= "Id Inconnu";
+                  }
               }
-          }
       
-          $replace["#listeIds#"] = $listeIds;
-          $replace["#listeIcones#"] = $listeIcones;
-          $replace["#listeNoms#"] = $listeNoms;
+              $replace["#listeIds#"] = $listeIds;
+              $replace["#listeIcones#"] = $listeIcones;
+              $replace["#listeNoms#"] = $listeNoms;
+          }
 
+          // Graphe
+          //
+          if ($typeDesign === "graphe") {
+              $unite = '';
+              $cmdGraphe1 = $this->getConfiguration('cmdGraphe1');
+              $cmdGraphe2 = $this->getConfiguration('cmdGraphe2');
+              $startTime = date("Y-m-d H:i:s", time()-3*60*60);
+
+              $listeHistoGraphe1 = '';
+              $cmd = cmd::byId(str_replace('#', '', $cmdGraphe1));
+              if (is_object($cmd)) {
+                  $histoGraphe1 = $cmd->getHistory($startTime);
+                  $n = 0;
+                  foreach ($histoGraphe1 as $row) {
+                      $n++;
+                      $datetime = $row->getDatetime();
+                      $ts = strtotime($datetime);
+                      $value = $row->getValue();
+  
+                      $listeHistoGraphe1 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
+                        .date("d", $ts).",".date("H", $ts).",".date("i", $ts).",".date("s", $ts)."),".$value."],\n";
+                  }
+                  if (n == 0) {
+                    $ts = strtotime($startTime);
+                    $value = $cmd->execCmd();
+                    $listeHistoGraphe1 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
+                    .date("d", $ts).",".date("H", $ts).",".date("i", $ts).",".date("s", $ts)."),".$value."],\n";
+                  }
+                  $ts = time();                  
+                  $value = $cmd->execCmd();
+                  $listeHistoGraphe1 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
+                    .date("d", $ts).",".date("H", $ts).",".date("i", $ts).",".date("s", $ts)."),".$value."],\n";
+                  $unite = $cmd->getUnite();                  
+              }
+              $replace["#listeHistoGraphe1#"] = $listeHistoGraphe1;
+          
+              $listeHistoGraphe2 = '';
+              $cmd = cmd::byId(str_replace('#', '', $cmdGraphe2));              
+              if (is_object($cmd)) {
+                  $histoGraphe2 = $cmd->getHistory($startTime);
+                  $n = 0;
+                  foreach ($histoGraphe2 as $row) {
+                      $datetime = $row->getDatetime();
+                      $ts = strtotime($datetime);
+                      $value = $row->getValue();
+                      $listeHistoGraphe2 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
+                      .date("d", $ts).",".date("H", $ts).",".date("i", $ts).",".date("s", $ts)."),".$value."],\n";
+                      $n++;
+                  }                  
+                  if (n == 0) {
+                    $ts = strtotime($startTime);
+                    $value = $cmd->execCmd();
+                    $listeHistoGraphe1 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
+                    .date("d", $ts).",".date("H", $ts).",".date("i", $ts).",".date("s", $ts)."),".$value."],\n";
+                  }
+                  $ts = time();
+                  $value = $cmd->execCmd();
+                  $listeHistoGraphe2 .= "[Date.UTC(".date("Y", $ts).",".(date("m", $ts)-1).","
+                  .date("d", $ts).",".date("H", $ts).",".date("i", $ts).",".date("s", $ts)."),".$value."],\n";
+                  $unite = $cmd->getUnite();                  
+              }
+              $replace["#listeHistoGraphe2#"] = $listeHistoGraphe2;
+              $replace["#unite#"] = $unite;
+          }
           return template_replace($replace, getTemplate('core', $version, 'Djeesign_' . $typeDesign, 'Djeesign'));
       }
 

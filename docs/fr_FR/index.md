@@ -35,6 +35,14 @@
         la liste des Ids de design qui seront automatiquement placés dans le menu ainsi qu'une liste de noms 
         d'icones correspondant à ces points de menu.
 
-        Notez que le point de menu correspondant au design affiché est automatiquement sélectionné.
+        Notez que le point de menu correspondant au design affiché est automatiquement sélectionné.       
 
 ![Menu](../images/menu.png "Menu")
+
+### 2.c. Graphe
+
+        Cet équipement permet la création d'un graphe minimal permettant d'afficher, on peut spécifier
+        deux commandes infos ( par exemple une consigne et la température mesurée ).
+
+![Menu](../images/graphe.png "Graphe")
+
