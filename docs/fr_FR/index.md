@@ -41,8 +41,8 @@
 
 ### 2.c. Graphe
 
-        Cet équipement permet la création d'un graphe minimal permettant d'afficher, on peut spécifier
+        Cet équipement permet la création d'un graphe minimaliste, on peut spécifier
         deux commandes infos ( par exemple une consigne et la température mesurée ).
 
-![Menu](../images/graphe.png "Graphe")
+![Graphe](../images/graphe.png "Graphe")
 
