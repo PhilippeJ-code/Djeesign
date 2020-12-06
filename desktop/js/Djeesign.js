@@ -55,7 +55,7 @@ $(document).ready(function () {
 
     $(".eqLogicAttr[data-l2key=typeDesign]").change(function () {
         if ($(this).value() !== null) {
-            if ($(this).value() === "menu") {
+            if (($(this).value() === "menu") || ($(this).value() === "mobile")){
                 $("#typeDesignCadre").css("display", "none");
                 $("#typeDesignMenu").css("display", "block");
                 $("#typeDesignGraphe").css("display", "none");

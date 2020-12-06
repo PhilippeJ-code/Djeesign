@@ -123,6 +123,7 @@
                   <option value="" disabled selected>{{Sélectionnez un type de design}}</option>
                   <option value="cadre">Tuile( défaut )</option>
                   <option value="menu">Menu</option>
+                  <option value="mobile">Menu Mobile</option>
                   <option value="graphe">Graphe</option>
                 </select>
               </div>
@@ -156,11 +157,20 @@
                 Liste Ids Design et liste icones
             -->
             <div id="typeDesignMenu">
+
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Liste Ids}}</label>
                 <div class="col-sm-3">
                   <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="listeIds"
                     placeholder="Ids des designs séparés par des ;" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-3 control-label">{{Liste Noms}}</label>
+                <div class="col-sm-3">
+                  <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="listeNoms"
+                    placeholder="Noms des designs séparés par des ;" />
                 </div>
               </div>
 

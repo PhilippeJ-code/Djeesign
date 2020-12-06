@@ -1,19 +1,19 @@
 <div class="eqLogic eqLogic-widget allowResize allowReorderCmd #custom_layout# #eqLogic_class#" data-eqType="#eqType#"
-  data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#"
-  data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#"
-  style="width: #width#;height: #height#;#style#">
+    data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#"
+    data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#"
+    style="width: #width#;height: #height#;#style#">
 
-  <div id="container#uid#" style="width:100%; height:100%">
-  </div>
+    <div id="container#uid#" style="width:100%; height:100%">
+    </div>
 
 </div>
 
 <script>
-    
+
     const chart#uid# = Highcharts.chart('container#uid#', {
         navigation: {
             buttonOptions: {
-            enabled: false
+                enabled: false
             }
         },
         chart: {
@@ -27,7 +27,7 @@
             visible: true,
             type: 'datetime'
         },
-        yAxis: {            
+        yAxis: {
             opposite: true,
             labels: {
                 format: '{value}#unite#'
@@ -63,7 +63,7 @@
             data: [
                 #listeHistoGraphe1#
             ]
-         }, {
+        }, {
             name: 'listHistoGraphe2',
             yAxis: 0,
             colorIndex: 2,
@@ -77,24 +77,34 @@
     });
 
     $('body').on('cmd::update', function (_event, _options) {
-      $(_options).each(function () {
-        switch (this.cmd_id) {
-          case "#idCmdGraphe1#": 
-            var date = new Date();
-            var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
-              date.getHours(), date.getMinutes(), date.getSeconds());
-            var y = this.value;
-            chart#uid#.series[0].addPoint([dateUTC, y], true);
-            break;
-          case "#idCmdGraphe2#":
-            var date = new Date();
-            var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
-              date.getHours(), date.getMinutes(), date.getSeconds());
-            var y = this.value;
-            chart#uid#.series[1].addPoint([dateUTC, y], true);
-            break;
-         }
-      });
+        $(_options).each(function () {
+            switch (this.cmd_id) {
+                case "#idCmdGraphe1#":
+                    var date = new Date();
+                    var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
+                        date.getHours(), date.getMinutes(), date.getSeconds());
+                    var y = this.value;
+                    chart#uid#.series[0].addPoint([dateUTC, y], false);
+                    var n = chart#uid#.series[1].points.length - 1;
+                    if (n >= 0) {
+                        var lastY = chart#uid#.series[1].points[n].y;
+                        chart#uid#.series[1].addPoint([dateUTC, lastY], false);
+                    }
+                    break;
+                case "#idCmdGraphe2#":
+                    var date = new Date();
+                    var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
+                        date.getHours(), date.getMinutes(), date.getSeconds());
+                    var y = this.value;
+                    chart#uid#.series[1].addPoint([dateUTC, y], false);
+                    var n = chart#uid#.series[0].points.length - 1;
+                    if (n >= 0) {
+                        var lastY = chart#uid#.series[0].points[n].y;
+                         chart#uid#.series[0].addPoint([dateUTC, lastY], false);
+                    }
+                    break;
+            }
+        });
     });
 
 </script>
