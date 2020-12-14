@@ -84,11 +84,11 @@
                     var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
                         date.getHours(), date.getMinutes(), date.getSeconds());
                     var y = this.value;
-                    chart#uid#.series[0].addPoint([dateUTC, y], false);
+                    chart#uid#.series[0].addPoint([dateUTC, y], true);
                     var n = chart#uid#.series[1].points.length - 1;
                     if (n >= 0) {
                         var lastY = chart#uid#.series[1].points[n].y;
-                        chart#uid#.series[1].addPoint([dateUTC, lastY], false);
+                        chart#uid#.series[1].addPoint([dateUTC, lastY], true);
                     }
                     break;
                 case "#idCmdGraphe2#":
@@ -96,11 +96,11 @@
                     var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
                         date.getHours(), date.getMinutes(), date.getSeconds());
                     var y = this.value;
-                    chart#uid#.series[1].addPoint([dateUTC, y], false);
+                    chart#uid#.series[1].addPoint([dateUTC, y], true);
                     var n = chart#uid#.series[0].points.length - 1;
                     if (n >= 0) {
                         var lastY = chart#uid#.series[0].points[n].y;
-                         chart#uid#.series[0].addPoint([dateUTC, lastY], false);
+                         chart#uid#.series[0].addPoint([dateUTC, lastY], true);
                     }
                     break;
             }
