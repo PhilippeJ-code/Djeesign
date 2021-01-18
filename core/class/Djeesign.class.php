@@ -116,6 +116,7 @@
               $listeIds = $this->getConfiguration('listeIds');
               $listeRemplacementNoms = $this->getConfiguration('listeNoms');
               $listeIcones = $this->getConfiguration('listeIcones');
+              $isIconOnly = $this->getConfiguration('isIconOnly');
  
               $listeNoms = '';
               $ids = explode(';', $listeIds);
@@ -149,6 +150,7 @@
               $replace["#listeIds#"] = $listeIds;
               $replace["#listeIcones#"] = $listeIcones;
               $replace["#listeNoms#"] = $listeNoms;
+              $replace["#isIconOnly#"] = $isIconOnly;
           }
 
           // Graphe

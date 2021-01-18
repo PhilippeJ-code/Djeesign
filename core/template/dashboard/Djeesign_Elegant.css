@@ -68,7 +68,7 @@
   zoom: 1;
   background-color: #36b0b6;
   background-image: linear-gradient( #36b0b6, #2a8a8f );
-  padding: 5px 10px;
+  padding: 5px 5px;
   border-radius: 5px;
 }
 
@@ -91,7 +91,7 @@
 
 .classDjeesignMenu li a {
   border-radius: 5px;
-  padding: 8px 15px 9px 15px;
+  padding: 8px 8px 8px 8px;
   display: block;
   text-decoration: none;
   color: #ffffff !important;
