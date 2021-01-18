@@ -33,7 +33,8 @@
 
         Cet équipement permet la création d'un menu qui pourra être placé sur un design, on peut définir 
         la liste des Ids de design qui seront automatiquement placés dans le menu ainsi qu'une liste de noms 
-        d'icones correspondant à ces points de menu.
+        d'icones correspondant à ces points de menu. Un case à cocher permet de n'afficher que les icones dans le
+        menu. 
 
         Notez que le point de menu correspondant au design affiché est automatiquement sélectionné.       
 

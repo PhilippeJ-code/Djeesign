@@ -7,3 +7,7 @@
 # 01-12-2020
 
     Ajout du design Graphe
+
+# 18-01-2021
+
+    Menu sans texte
