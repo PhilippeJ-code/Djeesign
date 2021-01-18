@@ -59,9 +59,7 @@
           data-action="returnToThumbnailDisplay"><i class="fa fa-arrow-circle-left"></i></a></li>
       <li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i
             class="fas fa-tachometer-alt"></i> {{Equipement}}</a></li>
-      <li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i
-            class="fa fa-list-alt"></i> {{Commandes}}</a></li>
-    </ul>
+     </ul>
     <div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
       <div role="tabpanel" class="tab-pane active" id="eqlogictab">
         <br />
@@ -167,6 +165,14 @@
               </div>
 
               <div class="form-group">
+                <label class="col-sm-3 control-label">{{Icones seules}}</label>
+                <div class="col-sm-3 form-check-input">
+                  <input type="checkbox" required class="eqLogicAttr" data-l1key="configuration"
+                      data-l2key="isIconOnly" unchecked /></label>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label class="col-sm-3 control-label">{{Liste Noms}}</label>
                 <div class="col-sm-3">
                   <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="listeNoms"
@@ -211,21 +217,6 @@
 
           </fieldset>
         </form>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="commandtab">
-        <a class="btn btn-success btn-sm cmdAction pull-right" data-action="add" style="margin-top:5px;"><i
-            class="fa fa-plus-circle"></i> {{Commandes}}</a><br /><br />
-        <table id="table_cmd" class="table table-bordered table-condensed">
-          <thead>
-            <tr>
-              <th>{{Nom}}</th>
-              <th>{{Type}}</th>
-              <th>{{Action}}</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>

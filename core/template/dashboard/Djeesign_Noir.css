@@ -91,7 +91,7 @@
 }
 
 .classDjeesignMenu li a {
-  height: 42px;
+  padding: 8px 8px 8px 8px;
   outline: none;
   display: block;
   position: relative;
