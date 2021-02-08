@@ -55,7 +55,7 @@ $(document).ready(function () {
 
     $(".eqLogicAttr[data-l2key=typeDesign]").change(function () {
         if ($(this).value() !== null) {
-            if (($(this).value() === "menu") || ($(this).value() === "mobile")){
+            if (($(this).value() === "menu") || ($(this).value() === "mobile")) {
                 $("#typeDesignCadre").css("display", "none");
                 $("#typeDesignMenu").css("display", "block");
                 $("#typeDesignGraphe").css("display", "none");
@@ -79,9 +79,38 @@ $(document).ready(function () {
     });
     $(".listEquipementInfo").click(function () {
         var el = $(this);
-        jeedom.cmd.getSelectModal({cmd: {type: 'info'}}, function (result) {
-          var calcul = el.closest('div').find('.eqLogicAttr[data-l1key=configuration][data-l2key=' + el.data('input') + ']');
-          calcul.atCaret('insert', result.human);
+        jeedom.cmd.getSelectModal({ cmd: { type: 'info' } }, function (result) {
+            var calcul = el.closest('div').find('.eqLogicAttr[data-l1key=configuration][data-l2key=' + el.data('input') + ']');
+            calcul.atCaret('insert', result.human);
         });
-      });
+    });
+
+    $('#idChoisirIcone').on('click', function () {
+        chooseIcon(function (_icon) {
+            var fin = _icon.lastIndexOf("'");
+            var debut = _icon.lastIndexOf('/');
+            if (fin > debut && debut != -1 && fin != -1) {
+                _icon = _icon.substr(debut + 1, fin - debut - 1);
+                $('#idIconeTuile').empty().value(_icon);
+            }
+        }, { icon: false, img: true })
+        modifyWithoutSave = true
+    })
+
+    $('#idChoisirIcones').on('click', function () {
+        chooseIcon(function (_icon) {
+            var fin = _icon.lastIndexOf("'");
+            var debut = _icon.lastIndexOf('/');
+            if (fin > debut && debut != -1 && fin != -1) {
+                _icon = _icon.substr(debut + 1, fin - debut - 1);
+                var oldIcon = $('#idIconesMenu').empty().val().trim();
+                if (oldIcon.length > 0) {
+                    _icon = oldIcon + ';' + _icon;
+                }
+                $('#idIconesMenu').empty().value(_icon)
+            }
+        }, { icon: false, img: true })
+        modifyWithoutSave = true
+    })
+
 });

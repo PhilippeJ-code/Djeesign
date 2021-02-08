@@ -143,8 +143,11 @@
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Icone}}</label>
                 <div class="col-sm-3">
-                  <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="icone"
+                  <input id="idIconeTuile" type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="icone"
                     placeholder="Icone de la tuile" />
+                </div>
+                <div class="col-lg-2 col-xs-3">
+                  <a class="btn btn-default btn-sm" id="idChoisirIcone"><i class="fas fa-flag"></i> {{Choisir}}</a>
                 </div>
               </div>
 
@@ -183,8 +186,11 @@
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Liste Icones}}</label>
                 <div class="col-sm-3">
-                  <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  <input id="idIconesMenu" type="text" class="eqLogicAttr form-control" data-l1key="configuration"
                     data-l2key="listeIcones" placeholder="Nom des icones séparés par des ;" />
+                </div>
+                <div class="col-lg-2 col-xs-3">
+                  <a class="btn btn-default btn-sm" id="idChoisirIcones"><i class="fas fa-flag"></i> {{Choisir}}</a>
                 </div>
               </div>
 
