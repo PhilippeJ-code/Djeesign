@@ -33,6 +33,8 @@ function initializeMenuHtml(parametres) {
     }
   }
   let planId = $_GET['plan_id'];
+  if ( isMenuView ) 
+    planId = $_GET['view_id'];
 
   function updateQueryStringParameter(uri, key, value) {
     var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
