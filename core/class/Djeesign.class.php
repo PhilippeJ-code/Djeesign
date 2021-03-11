@@ -117,6 +117,7 @@
               $listeRemplacementNoms = $this->getConfiguration('listeNoms');
               $listeIcones = $this->getConfiguration('listeIcones');
               $isIconOnly = $this->getConfiguration('isIconOnly');
+              $isMenuView = $this->getConfiguration('isMenuView');
  
               $listeNoms = '';
               $ids = explode(';', $listeIds);
@@ -135,11 +136,22 @@
                   $n++;
 
                   if ($nom === '') {
-                      $ph = planHeader::byId($id);
-                      if ($ph != null) {
-                          $listeNoms .= $ph->getName();
-                      } else {
-                          $listeNoms .= "Id Inconnu";
+                      if ( $isMenuView == true )
+                      {
+                        $vi = view::byId($id);
+                        if ($vi != null) {
+                            $listeNoms .= $vi->getName();
+                        } else {
+                            $listeNoms .= "Id Inconnu";
+                        }
+
+                      }else {
+                          $ph = planHeader::byId($id);
+                          if ($ph != null) {
+                              $listeNoms .= $ph->getName();
+                          } else {
+                              $listeNoms .= "Id Inconnu";
+                          }
                       }
                   }
                   else{
@@ -151,6 +163,7 @@
               $replace["#listeIcones#"] = $listeIcones;
               $replace["#listeNoms#"] = $listeNoms;
               $replace["#isIconOnly#"] = $isIconOnly;
+              $replace["#isMenuView#"] = $isMenuView;
           }
 
           // Graphe

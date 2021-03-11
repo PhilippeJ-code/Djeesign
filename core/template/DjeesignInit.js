@@ -10,6 +10,7 @@ function initializeMenuHtml(parametres) {
   let listeNoms = parametres.listeNoms;
   let noms = listeNoms.split(';');
   let isIconOnly = parametres.isIconOnly;
+  let isMenuView = parametres.isMenuView;
 
   // On récupère l'élément Html d'id ul-container et on vide son contenu
   //
@@ -33,6 +34,25 @@ function initializeMenuHtml(parametres) {
   }
   let planId = $_GET['plan_id'];
 
+  function updateQueryStringParameter(uri, key, value) {
+    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+    if (uri.match(re)) {
+      return uri.replace(re, '$1' + key + "=" + value + '$2');
+    }
+    else {
+      return uri + separator + key + "=" + value;
+    }
+  }
+
+  function displayView(item) {
+
+    let uri = document.location.toString();
+
+    return updateQueryStringParameter(uri, 'view_id', item);
+
+  }
+
   // Pour chacun des id, on ajoute le point de menu et on active le point de menu correspondant à l'adresse de navigation
   //   Avec un OnClick pour accéder au design correspondant à l'id planHeader_id
   //
@@ -45,27 +65,53 @@ function initializeMenuHtml(parametres) {
       image = image.trim();
     }
 
-    if (isIconOnly == true) {
-      if (image !== "") {
-        imageSrc = "<img src=\"data/img/" + image + "\" height=32px width=32px>"
+    if (isMenuView) {
+
+      let uri = displayView(item);
+
+      if (isIconOnly == true) {
+        if (image !== "") {
+          imageSrc = "<img src=\"data/img/" + image + "\" height=32px width=32px>";
+        }
+
+        if (item == planId)
+          navMenu.append("<li class='active'><a href='" + uri + "'>" + imageSrc + "</a></li>");
+        else
+          navMenu.append("<li><a href='" + uri + "'>" + imageSrc + "</a></li>");
+      }
+      else {
+        if (image !== "") {
+          imageSrc = "<img src=\"data/img/" + image + "\" height=16px width=16px>";
+        }
+
+        if (item == planId)
+          navMenu.append("<li class='active'><a href='" + uri + "'>" + imageSrc + " " + noms[index] + "</a></li>");
+        else
+          navMenu.append("<li><a href='" + uri + "'>" + imageSrc + " " + noms[index] + "</a></li>");
       }
 
-      if (item == planId)
-        navMenu.append("<li class='active'><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + "</a></li>");
-      else
-        navMenu.append("<li><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + "</a></li>");
-    }
-    else {
-      if (image !== "") {
-        imageSrc = "<img src=\"data/img/" + image + "\" height=16px width=16px>"
+    } else {
+      if (isIconOnly == true) {
+        if (image !== "") {
+          imageSrc = "<img src=\"data/img/" + image + "\" height=32px width=32px>";
+        }
+
+        if (item == planId)
+          navMenu.append("<li class='active'><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + "</a></li>");
+        else
+          navMenu.append("<li><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + "</a></li>");
       }
+      else {
+        if (image !== "") {
+          imageSrc = "<img src=\"data/img/" + image + "\" height=16px width=16px>";
+        }
 
-      if (item == planId)
-        navMenu.append("<li class='active'><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + " " + noms[index] + "</a></li>");
-      else
-        navMenu.append("<li><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + " " + noms[index] + "</a></li>");
+        if (item == planId)
+          navMenu.append("<li class='active'><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + " " + noms[index] + "</a></li>");
+        else
+          navMenu.append("<li><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + " " + noms[index] + "</a></li>");
+      }
     }
-
   }
 
 }

@@ -160,10 +160,18 @@
             <div id="typeDesignMenu">
 
               <div class="form-group">
+                <label class="col-sm-3 control-label">{{Menu Vue}}</label>
+                <div class="col-sm-3 form-check-input">
+                  <input type="checkbox" required class="eqLogicAttr" data-l1key="configuration"
+                      data-l2key="isMenuView" unchecked /></label>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label class="col-sm-3 control-label">{{Liste Ids}}</label>
                 <div class="col-sm-3">
                   <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="listeIds"
-                    placeholder="Ids des designs séparés par des ;" />
+                    placeholder="Ids des designs ou vues séparés par des ;" />
                 </div>
               </div>
 
