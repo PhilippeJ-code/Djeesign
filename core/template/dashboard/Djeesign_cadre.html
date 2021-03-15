@@ -48,8 +48,15 @@
     icone = icone.trim();
     let divIcone = $('#IdDjeesignIcone#uid#');
     divIcone.empty();
+
     if (icone !== "") {
-      let imgIcone = "<img src=\"data/img/" + icone + "\" height=100% width=100%>";
+      let imgIcone = "";
+      let nImg = icone.indexOf('.');      
+      if ( nImg != -1 )
+        imgIcone = "<img src=\"data/img/" + icone + "\" height=100% width=100%>";
+      else
+        imgIcone = "<i style='font-size:32px;' class='icon " + icone + "'></i>";
+
       divIcone.append(imgIcone);
     }
 

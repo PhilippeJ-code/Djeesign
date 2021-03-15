@@ -92,6 +92,12 @@ $(document).ready(function () {
             if (fin > debut && debut != -1 && fin != -1) {
                 _icon = _icon.substr(debut + 1, fin - debut - 1);
                 $('#idIconeTuile').empty().value(_icon);
+            } else {
+                var debut = _icon.lastIndexOf(' ');
+                if (fin > debut && debut != -1 && fin != -1) {
+                    _icon = _icon.substr(debut + 1, fin - debut - 1);
+                    $('#idIconeTuile').empty().value(_icon); 
+                }  
             }
         }, { icon: false, img: true })
         modifyWithoutSave = true
@@ -108,6 +114,16 @@ $(document).ready(function () {
                     _icon = oldIcon + ';' + _icon;
                 }
                 $('#idIconesMenu').empty().value(_icon)
+            } else {
+                var debut = _icon.lastIndexOf(' ');
+                if (fin > debut && debut != -1 && fin != -1) {
+                    _icon = _icon.substr(debut + 1, fin - debut - 1);
+                    var oldIcon = $('#idIconesMenu').empty().val().trim();
+                    if (oldIcon.length > 0) {
+                        _icon = oldIcon + ';' + _icon;
+                    }
+                    $('#idIconesMenu').empty().value(_icon)
+                }
             }
         }, { icon: false, img: true })
         modifyWithoutSave = true

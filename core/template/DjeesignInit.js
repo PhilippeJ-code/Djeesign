@@ -33,7 +33,7 @@ function initializeMenuHtml(parametres) {
     }
   }
   let planId = $_GET['plan_id'];
-  if ( isMenuView ) 
+  if ( isMenuView == true) 
     planId = $_GET['view_id'];
 
   function updateQueryStringParameter(uri, key, value) {
@@ -67,13 +67,17 @@ function initializeMenuHtml(parametres) {
       image = image.trim();
     }
 
-    if (isMenuView) {
+    if (isMenuView == true) {
 
       let uri = displayView(item);
+      let nImg = image.indexOf('.');
 
       if (isIconOnly == true) {
         if (image !== "") {
-          imageSrc = "<img src=\"data/img/" + image + "\" height=32px width=32px>";
+          if ( nImg != -1 )
+            imageSrc = "<img src=\"data/img/" + image + "\" height=32px width=32px>";
+          else
+            imageSrc = "<i style='font-size:32px;' class='icon " + image + "'></i>";
         }
 
         if (item == planId)
@@ -83,7 +87,10 @@ function initializeMenuHtml(parametres) {
       }
       else {
         if (image !== "") {
-          imageSrc = "<img src=\"data/img/" + image + "\" height=16px width=16px>";
+          if ( nImg != -1 )
+            imageSrc = "<img src=\"data/img/" + image + "\" height=16px width=16px>";
+          else
+            imageSrc = "<i style='font-size:16px;' class='icon " + image + "'></i>";
         }
 
         if (item == planId)
@@ -93,9 +100,15 @@ function initializeMenuHtml(parametres) {
       }
 
     } else {
+
+      let nImg = image.indexOf('.');
+
       if (isIconOnly == true) {
         if (image !== "") {
-          imageSrc = "<img src=\"data/img/" + image + "\" height=32px width=32px>";
+          if ( nImg != -1 )
+            imageSrc = "<img src=\"data/img/" + image + "\" height=32px width=32px>";
+          else
+            imageSrc = "<i style='font-size:32px;' class='icon " + image + "'></i>";
         }
 
         if (item == planId)
@@ -105,7 +118,10 @@ function initializeMenuHtml(parametres) {
       }
       else {
         if (image !== "") {
-          imageSrc = "<img src=\"data/img/" + image + "\" height=16px width=16px>";
+          if ( nImg != -1 )
+            imageSrc = "<img src=\"data/img/" + image + "\" height=16px width=16px>";
+          else
+            imageSrc = "<i style='font-size:16px;' class='icon " + image + "'></i>";
         }
 
         if (item == planId)
@@ -115,5 +131,4 @@ function initializeMenuHtml(parametres) {
       }
     }
   }
-
 }
