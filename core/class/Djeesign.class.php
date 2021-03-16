@@ -136,16 +136,14 @@
                   $n++;
 
                   if ($nom === '') {
-                      if ( $isMenuView == true )
-                      {
-                        $vi = view::byId($id);
-                        if ($vi != null) {
-                            $listeNoms .= $vi->getName();
-                        } else {
-                            $listeNoms .= "Id Inconnu";
-                        }
-
-                      }else {
+                      if ($isMenuView == true) {
+                          $vi = view::byId($id);
+                          if ($vi != null) {
+                              $listeNoms .= $vi->getName();
+                          } else {
+                              $listeNoms .= "Id Inconnu";
+                          }
+                      } else {
                           $ph = planHeader::byId($id);
                           if ($ph != null) {
                               $listeNoms .= $ph->getName();
@@ -153,9 +151,8 @@
                               $listeNoms .= "Id Inconnu";
                           }
                       }
-                  }
-                  else{
-                    $listeNoms .= $nom;
+                  } else {
+                      $listeNoms .= $nom;
                   }
               }
       
@@ -164,6 +161,14 @@
               $replace["#listeNoms#"] = $listeNoms;
               $replace["#isIconOnly#"] = $isIconOnly;
               $replace["#isMenuView#"] = $isMenuView;
+
+              if ($_version == 'dashboard') {
+                $defaultView = $_SESSION['user']->getOptions('defaultDesktopView');
+              } else {
+                $defaultView = $_SESSION['user']->getOptions('defaultMobileView');
+              }         
+              $replace["#defaultView#"] = $defaultView;
+
           }
 
           // Graphe

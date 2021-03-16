@@ -34,7 +34,12 @@ function initializeMenuHtml(parametres) {
   }
   let planId = $_GET['plan_id'];
   if ( isMenuView == true) 
+  {
     planId = $_GET['view_id'];
+    if ( typeof planId == 'undefined' ) {
+      planId = parametres.defaultView;
+    }
+  }
 
   function updateQueryStringParameter(uri, key, value) {
     var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");

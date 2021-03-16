@@ -1,0 +1,122 @@
+/*
+  Styles du cadre
+*/
+.classDjeesignPourtour
+{
+    width:100%;
+    height:100%;     
+    position:absolute;
+    background-color: rgb(255,255,255);            
+    border: 2px solid #444444;
+}
+
+.classDjeesignFondTitre
+{
+    width:100%;                         
+    height:40px;
+    position:absolute;
+    border: 2px solid #444444;
+    background: #47c9af;
+}
+
+.classDjeesignTitre
+{
+    width:100%;                         
+    position:absolute;
+    margin-top: 8px;
+    text-align: center;
+    font-family:Arial;
+    font-weight:normal;
+    font-size:16px;
+}
+
+.classDjeesignIcone
+{
+    width:30px;
+    height:30px;
+    position:absolute;
+    margin-top:3px;
+    margin-left:3px;
+}
+
+/*
+  Styles du menu
+*/
+.classDjeesignMenu {
+    width: auto;
+    border-bottom: 3px solid #47c9af;
+    font-family: Raleway, sans-serif;
+    line-height: 1;
+}
+
+.classDjeesignMenu,
+.classDjeesignMenu ul,
+.classDjeesignMenu ul li,
+.classDjeesignMenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.classDjeesignMenu:after,
+.classDjeesignMenu>ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.classDjeesignMenu ul {
+  background: #ffffff;
+}
+
+.classDjeesignMenu>ul>li {
+  float: left;
+}
+
+.classDjeesignMenu>ul>li>a {
+  z-index: 2;
+  padding: 10px 10px 10px 10px;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #444444 !important;
+  transition: all .2s ease;
+  margin-right: -4px;
+}
+
+.classDjeesignMenu>ul>li.active>a,
+.classDjeesignMenu>ul>li:hover>a,
+.classDjeesignMenu>ul>li>a:hover {
+  color: #ffffff !important;
+}
+
+.classDjeesignMenu>ul>li>a:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  width: 100%;
+  height: 120%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  content: "";
+  transition: all .2s ease;
+  transform: perspective(5px) rotateX(2deg);
+  transform-origin: bottom;
+}
+
+.classDjeesignMenu>ul>li.active>a:after,
+.classDjeesignMenu>ul>li:hover>a:after,
+.classDjeesignMenu>ul>li>a:hover:after {
+  background: #47c9af;
+}
+

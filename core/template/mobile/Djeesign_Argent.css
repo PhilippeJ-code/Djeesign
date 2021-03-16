@@ -1,0 +1,250 @@
+/*
+  Styles du cadre
+*/
+.classDjeesignPourtour
+{
+    width:100%;
+    height:100%;     
+    position:absolute;
+    background-color: rgb(255,255,255);            
+    border: 2px solid #133e40;
+    border-radius: 8px;
+}
+
+.classDjeesignFondTitre
+{
+    width:100%;                         
+    height:40px;
+    position:absolute;
+     border: 2px solid #133e40;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    background-color: #566171;
+    background-image: linear-gradient(#6e7d8f, #404854);
+   }
+
+.classDjeesignTitre
+{
+    width:100%;                         
+    position:absolute;
+    margin-top: 8px;
+    text-align: center;
+    font-family:Arial;
+    font-weight:normal;
+    font-size:16px;     
+}
+
+.classDjeesignIcone
+{
+    width:30px;
+    height:30px;
+    position:absolute;
+    margin-top:3px;
+    margin-left:3px;
+}
+
+/*
+  Styles du menu
+*/
+.classDjeesignMenu {
+  position:absolute;
+  margin-top: 3px;
+  border: 1px solid #133e40;
+  border-radius: 5px;
+  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.classDjeesignMenu ul,
+.classDjeesignMenu li,
+.classDjeesignMenu a {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1;
+}
+
+.classDjeesignMenu ul {
+  zoom: 1;
+  background-color: #566171;
+  background-image: linear-gradient(#6e7d8f, #404854);
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+
+.classDjeesignMenu ul:before {
+  content: '';
+  display: block;
+}
+
+.classDjeesignMenu ul:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.classDjeesignMenu li {
+  float: left;
+  margin: 0 5px 0 0;
+  border: 1px solid transparent;
+}
+
+.classDjeesignMenu li a {
+  background-color: #c2c2c2;
+  background-image: linear-gradient(#f1f1f1, #a8a8a8);
+  border-radius: 5px;
+  padding: 8px 8px 8px 8px;
+  display: block;
+  text-decoration: none;
+  color: #3c444d !important;
+  border: 1px solid #133e40;
+  font-size: 12px;
+}
+
+.classDjeesignMenu li.active a {
+  border-radius: 5px;
+  display: block;
+  background-color: #c46a60;
+  background-image: linear-gradient(#ef7260, #b04c41);
+  border: 1px solid #133e40;
+  }
+
+.classDjeesignMenu li:hover a {
+  background-color: #e2e2e2;
+  background-image: linear-gradient(#ffffff, #c8c8c8);
+  border-radius: 5px;
+  display: block;
+  border: 1px solid #133e40;
+ }
+
+.classDjeesignMenu>ul>li.active:hover>a {
+  background-color: #cb7b72;
+  background-image: linear-gradient(#f49b8e, #bd584d);
+}
+
+/*
+  Styles du menu mobile
+*/
+
+.classDjeesignMobile {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.classDjeesignMobileContenu {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.classDjeesignMobileContenu nav {
+  background-color: transparent;
+  height: 65px;
+}
+
+#idDjeesignMobileToggle {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#idDjeesignMobileToggle input {
+  display: flex;
+  top: -5px;
+  left: -5px;
+  width: 35px !important;
+  height: 35px !important;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+}
+
+#idDjeesignMobileToggle span {
+  display: flex;
+  width: 26px;
+  height: 3px;
+  margin-bottom: 9px;
+  position: relative;
+  background: #6e7d8f;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 5px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+      opacity 0.55s ease;
+}
+
+#idDjeesignMobileToggle input:checked~span {
+  transform-origin: 0px 1px; 
+  transform: rotate(45deg) scale(1.3, 1);
+}
+
+#idDjeesignMobileToggle input:checked~span:nth-last-child(3) {
+  transform: rotate(0deg) scale(0.1, 0.1);
+  opacity: 0;
+}
+
+#idDjeesignMobileToggle input:checked~span:nth-last-child(2) {
+  transform-origin: 0px 1px; 
+  transform: rotate(-45deg) scale(1.3, 1);
+}
+
+#idDjeesignMobileToggle input:checked~ul {
+  transform: none;
+}
+
+.classDjeesignMobileMenu {
+  position: absolute;
+  width: 240px;
+  height: 400px;
+  box-shadow: 0 0 10px #6e7d8f;
+  margin: -50px 0 0 -50px;
+  padding: 50px;
+  padding-top: 75px;
+  background-color: #F5F6FA;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  list-style-type: none;
+}
+
+.classDjeesignMobileMenu li {
+  padding: 3px 0;
+  transition-delay: 2s;
+}
+
+.classDjeesignMobileMenu li a {
+  text-decoration: none;
+  color: #3c444d !important;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  transition: 200ms;
+}
+
+.classDjeesignMobileMenu li.active a {
+  color: #c46a60 !important;
+}
+
+.classDjeesignMobileMenu li a:hover {
+  color: #c46a60 !important;
+}
+
+.classDjeesignMobileMenu li.active a:hover {
+  color: coral !important;
+}
