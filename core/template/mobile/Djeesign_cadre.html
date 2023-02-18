@@ -7,7 +7,7 @@
 
   <div class="classDjeesignPourtour">
   </div>
-  
+
   <div class="classDjeesignFondTitre">
   </div>
 
@@ -18,48 +18,48 @@
   <div id="IdDjeesignIcone#uid#" class="classDjeesignIcone">
   </div>
 
-</div>
+  <script type="text/javascript">
 
-<script type="text/javascript">
+    $(document).change(function (e) {
+      if (e.target.dataset.eqlogic_uid === "#uid#") {
+        initDisplay#uid#();
+      }
+    });
 
-  $(document).change(function (e) {
-    if (e.target.dataset.eqlogic_uid === "#uid#") {
+    $(document).ready(function () {
       initDisplay#uid#();
-    }
-  });
+    });
 
-  $(document).ready(function () {
-    initDisplay#uid#();
-  });
+    function initDisplay#uid#()
+    {
 
-  function initDisplay#uid#()
-  {
+      // Titre du cadre
+      //
+      let titre = "#titre#";
+      let divTitre = $('#IdDjeesignTitre#uid#');
+      divTitre.empty();
+      divTitre.append(titre);
 
-    // Titre du cadre
-    //
-    let titre = "#titre#";
-    let divTitre = $('#IdDjeesignTitre#uid#');
-    divTitre.empty();
-    divTitre.append(titre);
+      // Icone du cadre
+      //
+      let icone = "#icone#";
+      icone = icone.trim();
+      let divIcone = $('#IdDjeesignIcone#uid#');
+      divIcone.empty();
 
-    // Icone du cadre
-    //
-    let icone = "#icone#";
-    icone = icone.trim();
-    let divIcone = $('#IdDjeesignIcone#uid#');
-    divIcone.empty();
+      if (icone !== "") {
+        let imgIcone = "";
+        let nImg = icone.indexOf('.');
+        if (nImg != -1)
+          imgIcone = "<img src=\"data/img/" + icone + "\" height=100% width=100%>";
+        else
+          imgIcone = "<i style='font-size:32px;' class='icon " + icone + "'></i>";
 
-    if (icone !== "") {
-      let imgIcone = "";
-      let nImg = icone.indexOf('.');      
-      if ( nImg != -1 )
-        imgIcone = "<img src=\"data/img/" + icone + "\" height=100% width=100%>";
-      else
-        imgIcone = "<i style='font-size:32px;' class='icon " + icone + "'></i>";
+        divIcone.append(imgIcone);
+      }
 
-      divIcone.append(imgIcone);
     }
 
-  }
+  </script>
 
-</script>
+</div>

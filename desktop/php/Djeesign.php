@@ -59,7 +59,9 @@
           data-action="returnToThumbnailDisplay"><i class="fa fa-arrow-circle-left"></i></a></li>
       <li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i
             class="fas fa-tachometer-alt"></i> {{Equipement}}</a></li>
-     </ul>
+      <li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i
+            class="fa fa-list-alt"></i> {{Commandes}}</a></li>
+    </ul>
     <div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
       <div role="tabpanel" class="tab-pane active" id="eqlogictab">
         <br />
@@ -123,6 +125,8 @@
                   <option value="menu">Menu</option>
                   <option value="mobile">Menu Mobile</option>
                   <option value="graphe">Graphe</option>
+                  <option value="widget_temp">Widget température</option>
+                  <option value="widget_lumi">Widget lumière</option>
                 </select>
               </div>
             </div>
@@ -143,8 +147,8 @@
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Icone}}</label>
                 <div class="col-sm-3">
-                  <input id="idIconeTuile" type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="icone"
-                    placeholder="Icone de la tuile" />
+                  <input id="idIconeTuile" type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                    data-l2key="icone" placeholder="Icone de la tuile" />
                 </div>
                 <div class="col-lg-2 col-xs-3">
                   <a class="btn btn-default btn-sm" id="idChoisirIcone"><i class="fas fa-flag"></i> {{Choisir}}</a>
@@ -162,8 +166,8 @@
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Menu Vue}}</label>
                 <div class="col-sm-3 form-check-input">
-                  <input type="checkbox" required class="eqLogicAttr" data-l1key="configuration"
-                      data-l2key="isMenuView" unchecked /></label>
+                  <input type="checkbox" required class="eqLogicAttr" data-l1key="configuration" data-l2key="isMenuView"
+                    unchecked /></label>
                 </div>
               </div>
 
@@ -178,8 +182,8 @@
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Icones seules}}</label>
                 <div class="col-sm-3 form-check-input">
-                  <input type="checkbox" required class="eqLogicAttr" data-l1key="configuration"
-                      data-l2key="isIconOnly" unchecked /></label>
+                  <input type="checkbox" required class="eqLogicAttr" data-l1key="configuration" data-l2key="isIconOnly"
+                    unchecked /></label>
                 </div>
               </div>
 
@@ -229,9 +233,143 @@
               </div>
             </div>
 
+            <!--
+              Options du widget températures
+                id Température, humidité               
+            -->
+            <div id="typeDesignWidgetTemp">
+
+              <div class="form-group">
+                <label class="col-sm-3 control-label">{{Titre}}</label>
+                <div class="col-sm-3">
+                  <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                    data-l2key="tempTitreWidget" placeholder="Titre du widget" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Commande info température}}</label>
+                <div class="col-md-6 input-group">
+                  <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
+                    data-l2key="tempInfoTemperature"></input>
+                  <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
+                    data-input="tempInfoTemperature"><i class="fas fa-list-alt"></i></a>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Température min (°C)}}</label>
+                <div class="col-sm-1">
+                  <input type="text" class="eqLogicAttr form-control tooltips" data-l1key="configuration"
+                    data-l2key="temperature_min" placeholder="0" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Température max (°C)}}</label>
+                <div class="col-sm-1">
+                  <input type="text" class="eqLogicAttr form-control tooltips" data-l1key="configuration"
+                    data-l2key="temperature_max" placeholder="100" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Commande info humidité}}</label>
+                <div class="col-md-6 input-group">
+                  <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
+                    data-l2key="tempInfoHumidite"></input>
+                  <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
+                    data-input="tempInfoHumidite"><i class="fas fa-list-alt"></i></a>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Humidité min (°C)}}</label>
+                <div class="col-sm-1">
+                  <input type="text" class="eqLogicAttr form-control tooltips" data-l1key="configuration"
+                    data-l2key="humidite_min" placeholder="0" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Humidité max (°C)}}</label>
+                <div class="col-sm-1">
+                  <input type="text" class="eqLogicAttr form-control tooltips" data-l1key="configuration"
+                    data-l2key="humidite_max" placeholder="100" />
+                </div>
+              </div>
+
+            </div>
+
+            <!--
+              Options du widget lumière
+                id Statut               
+            -->
+            <div id="typeDesignWidgetLumi">
+
+              <div class="form-group">
+                <label class="col-sm-3 control-label">{{Titre}}</label>
+                <div class="col-sm-3">
+                  <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                    data-l2key="lumiTitreWidget" placeholder="Titre du widget" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Commande info statut}}</label>
+                <div class="col-md-6 input-group">
+                  <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
+                    data-l2key="lumiInfoStatut"></input>
+                  <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
+                    data-input="lumiInfoStatut"><i class="fas fa-list-alt"></i></a>
+                </div>
+              </div>
+
+              <div>
+                <legend>
+                  {{Consignes on ?}}
+                  <a class="btn btn-primary btn-xs pull-right addAction" data-type="csg_on"
+                    style="position: relative; top : 5px;"><i class="fas fa-plus-circle"></i> {{Ajouter une
+                    action}}</a>
+                </legend>
+                <div id="div_csg_on">
+
+                </div>
+              </div>
+
+              <div>
+                <legend>
+                  {{Consignes off ?}}
+                  <a class="btn btn-primary btn-xs pull-right addAction" data-type="csg_off"
+                    style="position: relative; top : 5px;"><i class="fas fa-plus-circle"></i> {{Ajouter une
+                    action}}</a>
+                </legend>
+                <div id="div_csg_off">
+
+                </div>
+              </div>
+
           </fieldset>
         </form>
       </div>
+
+      <div role="tabpanel" class="tab-pane" id="commandtab">
+        <a class="btn btn-success btn-sm cmdAction pull-right" data-action="add" style="margin-top:5px;"><i
+            class="fa fa-plus-circle"></i> {{Commandes}}</a><br /><br />
+        <table id="table_cmd" class="table table-bordered table-condensed">
+          <thead>
+            <tr>
+              <th>{{Nom}}</th>
+              <th>{{Type}}</th>
+              <th>{{Paramètres}}</th>
+              <th>{{Action}}</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      
     </div>
   </div>
 </div>

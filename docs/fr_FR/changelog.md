@@ -15,3 +15,7 @@
 # 11-03-2021
 
     Menu vue
+
+# 18-02-2023
+
+    Ajout d'un visuel ( Blanc ) et de deux widgets ( température/humidité et lumière )

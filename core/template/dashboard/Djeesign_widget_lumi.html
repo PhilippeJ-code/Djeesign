@@ -1,0 +1,66 @@
+<div class="eqLogic eqLogic-widget allowResize allowReorderCmd #custom_layout# #eqLogic_class#" data-eqType="#eqType#"
+  data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#"
+  data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#"
+  style="width: #width#;height: #height#;#style#">
+
+  <div class="classDjeesignWidget">
+  </div>
+
+  <div class="classDjeesignWidgetFondTitre">
+  </div>
+
+  <div class="classDjeesignWidgetTitre">
+    <span id="idTitre#uid#">Titre</span>
+  </div>
+
+  <div class="classDjeesignWidgetContenu">
+
+    <div class="classDjeesignWidgetLigne">
+      <img class="cursor" id="idImgStatutOn#uid#" src="plugins/Djeesign/core/img/lightbulb-on.svg">
+      <img class="cursor" id="idImgStatutOff#uid#" src="plugins/Djeesign/core/img/lightbulb-off.svg">
+      <span id="idStatut#uid#"></span>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+
+    jeedom.cmd.update['#idStatut#'] = function (_options) {
+
+      if (_options.display_value == 9999) {
+        $('#idImgStatutOn#uid#').hide();
+        $('#idImgStatutOff#uid#').hide();
+      } else {
+        jeedom.cmd.displayDuration(_options.valueDate,  $('#idStatut#uid#'));
+        if (_options.display_value >= 1) {
+          $('#idImgStatutOn#uid#').show();
+          $('#idImgStatutOff#uid#').hide();
+        } else {
+          $('#idImgStatutOn#uid#').hide();
+          $('#idImgStatutOff#uid#').show();
+        }
+      }
+    }
+    jeedom.cmd.update['#idStatut#']({ display_value: '#valStatut#', valueDate: '#vdStatut#', collectDate: '#cdStatut#' });
+
+    $('#idTitre#uid#').html('#titreWidget#');
+    $('#idTitre#uid#').css("color", "#clrTitre#");
+    $('#idStatut#uid#').css("color", "#clrTexte#");
+
+    $('#idImgStatutOn#uid#').on('click', function () {
+      jeedom.cmd.execute({
+        id: '#idEteindre#'
+      });
+    });
+
+    $('#idImgStatutOff#uid#').on('click', function () {
+      jeedom.cmd.execute({
+        id: '#idAllumer#'
+      });
+    });
+
+  </script>
+
+</div>
+
+<link rel="stylesheet" href="plugins/Djeesign/core/template/dashboard/Djeesign_#visuel#.css" />

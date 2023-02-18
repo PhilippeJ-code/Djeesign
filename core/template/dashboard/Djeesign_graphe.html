@@ -6,105 +6,110 @@
     <div id="container#uid#" style="width:100%; height:100%">
     </div>
 
-</div>
+    <script>
 
-<script>
-
-    const chart#uid# = Highcharts.chart('container#uid#', {
-        navigation: {
-            buttonOptions: {
-                enabled: false
-            }
-        },
-        chart: {
-            backgroundColor: 'rgb(255, 255, 255)',
-            type: 'line'
-        },
-        title: {
-            text: ''
-        },
-        xAxis: {
-            visible: true,
-            type: 'datetime'
-        },
-        yAxis: {
-            opposite: true,
-            labels: {
-                format: '{value}#unite#'
+        const chart#uid# = Highcharts.chart('container#uid#', {
+            navigation: {
+                buttonOptions: {
+                    enabled: false
+                }
+            },
+            chart: {
+                backgroundColor: 'rgb(255, 255, 255)',
+                type: 'line'
             },
             title: {
                 text: ''
-            }
-        },
-        plotOptions: {
-            line: {
-                dataLabels: {
+            },
+            xAxis: {
+                visible: true,
+                type: 'datetime'
+            },
+            yAxis: {
+                opposite: true,
+                labels: {
+                    format: '{value}#unite#'
+                },
+                title: {
+                    text: ''
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: false
+                    },
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:12px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} #unite#</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true,
+                borderRadius: 10
+            },
+            credits: {
+                enabled: false
+            },
+            legend: {
+                enabled: false
+            },
+            series: [{
+                name: 'Csg',
+                yAxis: 0,
+                colorIndex: 0,
+                marker: {
                     enabled: false
                 },
-                enableMouseTracking: false
-            }
-        },
-        tooltip: {
-            enabled: false
-        },
-        credits: {
-            enabled: false
-        },
-        legend: {
-            enabled: false
-        },
-        series: [{
-            name: 'listeHistoGraphe1',
-            yAxis: 0,
-            colorIndex: 0,
-            marker: {
-                enabled: false
-            },
-            data: [
+                data: [
                 #listeHistoGraphe1#
-            ]
-        }, {
-            name: 'listHistoGraphe2',
-            yAxis: 0,
-            colorIndex: 2,
-            marker: {
-                enabled: false
-            },
-            data: [
+                ]
+            }, {
+                name: 'Val',
+                yAxis: 0,
+                colorIndex: 2,
+                marker: {
+                    enabled: false
+                },
+                data: [
                 #listeHistoGraphe2#
-            ]
-        }]
-    });
-
-    $('body').on('cmd::update', function (_event, _options) {
-        $(_options).each(function () {
-            switch (this.cmd_id) {
-                case "#idCmdGraphe1#":
-                    var date = new Date();
-                    var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
-                        date.getHours(), date.getMinutes(), date.getSeconds());
-                    var y = this.value;
-                    chart#uid#.series[0].addPoint([dateUTC, y], true);
-                    var n = chart#uid#.series[1].points.length - 1;
-                    if (n >= 0) {
-                        var lastY = chart#uid#.series[1].points[n].y;
-                        chart#uid#.series[1].addPoint([dateUTC, lastY], true);
-                    }
-                    break;
-                case "#idCmdGraphe2#":
-                    var date = new Date();
-                    var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
-                        date.getHours(), date.getMinutes(), date.getSeconds());
-                    var y = this.value;
-                    chart#uid#.series[1].addPoint([dateUTC, y], true);
-                    var n = chart#uid#.series[0].points.length - 1;
-                    if (n >= 0) {
-                        var lastY = chart#uid#.series[0].points[n].y;
-                         chart#uid#.series[0].addPoint([dateUTC, lastY], true);
-                    }
-                    break;
-            }
+                ]
+            }]
         });
-    });
 
-</script>
+        $('body').on('cmd::update', function (_event, _options) {
+            $(_options).each(function () {
+                switch (this.cmd_id) {
+                    case "#idCmdGraphe1#":
+                        var date = new Date();
+                        var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
+                            date.getHours(), date.getMinutes(), date.getSeconds());
+                        var y = this.value;
+                        chart#uid#.series[0].addPoint([dateUTC, y], true);
+                        var n = chart#uid#.series[1].points.length - 1;
+                        if (n >= 0) {
+                            var lastY = chart#uid#.series[1].points[n].y;
+                            chart#uid#.series[1].addPoint([dateUTC, lastY], true);
+                        }
+                        break;
+                    case "#idCmdGraphe2#":
+                        var date = new Date();
+                        var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
+                            date.getHours(), date.getMinutes(), date.getSeconds());
+                        var y = this.value;
+                        chart#uid#.series[1].addPoint([dateUTC, y], true);
+                        var n = chart#uid#.series[0].points.length - 1;
+                        if (n >= 0) {
+                            var lastY = chart#uid#.series[0].points[n].y;
+                            chart#uid#.series[0].addPoint([dateUTC, lastY], true);
+                        }
+                        break;
+                }
+            });
+        });
+
+    </script>
+
+</div>

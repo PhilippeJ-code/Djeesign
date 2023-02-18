@@ -48,3 +48,17 @@
 
 ![Graphe](../images/graph.png "Graphe")
 
+### 2.d. Widget température/humidité
+
+        Cet équipement permet l'affichage d'un widget température et/ou humidité
+
+![temp_humi](../images/temp_humi.png "temp_humi")
+
+
+### 2.e. Widget lumière
+
+        Cet équipement permet l'affichage d'un widget lumière avec commandes on/off
+
+![temp_lumi](../images/lumi.png "temp_lumi")
+
+

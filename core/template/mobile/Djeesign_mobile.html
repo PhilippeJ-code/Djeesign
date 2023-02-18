@@ -28,44 +28,45 @@
         </div>
       </nav>
     </div>
-  </div>
 
-  <!--
+    <!--
 
   Script
 
     On récupère les infos stockées par OnHtml et on construit le menu sur document prêt et changement du document
 
 -->
-  <script>
+    <script>
 
-    // Document prêt, on construit le menu
-    //
-    $(document).ready(function () {
-      initDisplay#uid#();
-    });
-
-    // Document modifié, on construit le menu
-    //
-    $(document).change(function (e) {
-      if (e.target.dataset.eqlogic_uid === "#uid#") {
+      // Document prêt, on construit le menu
+      //
+      $(document).ready(function () {
         initDisplay#uid#();
+      });
+
+      // Document modifié, on construit le menu
+      //
+      $(document).change(function (e) {
+        if (e.target.dataset.eqlogic_uid === "#uid#") {
+          initDisplay#uid#();
+        }
+      });
+
+      // On construit le menu avec les infos de configuration
+      //
+      function initDisplay#uid#() {
+        var parametres = {};
+
+        parametres.uid = "#uid#";
+        parametres.listeIds = "#listeIds#";
+        parametres.listeIcones = "#listeIcones#";
+        parametres.listeNoms = "#listeNoms#";
+        parametres.isIconOnly = "#isIconOnly#";
+        parametres.isMenuView = "#isMenuView#";
+        parametres.defaultView = "#defaultView#";
+
+        initializeMenuHtml(parametres);
       }
-    });
+    </script>
 
-    // On construit le menu avec les infos de configuration
-    //
-    function initDisplay#uid#() {
-      var parametres = {};
-
-      parametres.uid = "#uid#";
-      parametres.listeIds = "#listeIds#";
-      parametres.listeIcones = "#listeIcones#";
-      parametres.listeNoms = "#listeNoms#";
-      parametres.isIconOnly = "#isIconOnly#";
-      parametres.isMenuView = "#isMenuView#";
-      parametres.defaultView = "#defaultView#";
-
-      initializeMenuHtml(parametres);
-    }
-  </script>
+  </div>

@@ -117,9 +117,9 @@ function initializeMenuHtml(parametres) {
         }
 
         if (item == planId)
-          navMenu.append("<li class='active'><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + "</a></li>");
+          navMenu.append("<li class='active'><a onClick='jeephp2js.planHeader_id=" + item + "; jeeFrontEnd.plan.displayPlan();'>" + imageSrc + "</a></li>");
         else
-          navMenu.append("<li><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + "</a></li>");
+          navMenu.append("<li><a onClick='jeephp2js.planHeader_id=" + item + "; jeeFrontEnd.plan.displayPlan();'>" + imageSrc + "</a></li>");
       }
       else {
         if (image !== "") {
@@ -130,9 +130,9 @@ function initializeMenuHtml(parametres) {
         }
 
         if (item == planId)
-          navMenu.append("<li class='active'><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + " " + noms[index] + "</a></li>");
+          navMenu.append("<li class='active'><a onClick='jeephp2js.planHeader_id=" + item + "; jeeFrontEnd.plan.displayPlan();'>" + imageSrc + " " + noms[index] + "</a></li>");
         else
-          navMenu.append("<li><a onClick='planHeader_id=" + item + "; displayPlan();'>" + imageSrc + " " + noms[index] + "</a></li>");
+          navMenu.append("<li><a onClick='jeephp2js.planHeader_id=" + item + "; jeeFrontEnd.plan.displayPlan();'>" + imageSrc + " " + noms[index] + "</a></li>");
       }
     }
   }
