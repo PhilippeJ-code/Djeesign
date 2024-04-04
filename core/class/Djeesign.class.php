@@ -162,6 +162,7 @@ class Djeesign extends eqLogic
 
         $visuel = config::byKey('visuel', 'Djeesign');
         $typeDesign = $this->getConfiguration('typeDesign');
+        
         if (($typeDesign !== "cadre")  && ($typeDesign !== "menu") &&
             ($typeDesign !== "mobile") && ($typeDesign !== "graphe") &&
             ($typeDesign !== "widget_temp") && ($typeDesign !== "widget_lumi")) {

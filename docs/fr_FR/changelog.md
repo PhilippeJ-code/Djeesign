@@ -19,3 +19,7 @@
 # 18-02-2023
 
     Ajout d'un visuel ( Blanc ) et de deux widgets ( température/humidité et lumière )
+
+# 02-03-2024
+
+    Modifications pour Jeedom 4.4

@@ -181,7 +181,7 @@ $(document).ready(function () {
     });
 
     $('#idChoisirIcone').on('click', function () {
-        chooseIcon(function (_icon) {
+        jeedomUtils.chooseIcon(function (_icon) {
             var fin = _icon.lastIndexOf("'");
             var debut = _icon.lastIndexOf('/');
             if (fin > debut && debut != -1 && fin != -1) {
@@ -199,7 +199,7 @@ $(document).ready(function () {
     })
 
     $('#idChoisirIcones').on('click', function () {
-        chooseIcon(function (_icon) {
+        jeedomUtils.chooseIcon(function (_icon) {
             var fin = _icon.lastIndexOf("'");
             var debut = _icon.lastIndexOf('/');
             if (fin > debut && debut != -1 && fin != -1) {
