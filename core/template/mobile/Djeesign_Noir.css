@@ -7,7 +7,7 @@
     height:100%;      
     position:absolute;
     background-color: rgb(255,255,255);            
-    border: 2px solid #080808;
+    border: 1px solid #f96e5b;
 }
 
 .classDjeesignFondTitre
@@ -15,8 +15,8 @@
     width:100%;                         
     height:40px;
     position:absolute;
-    border: 2px solid #080808;
-    background: #3f3f3f;
+    border: 1px solid #f96e5b;
+    background-color: #3f3f3f;
 }
 
 .classDjeesignTitre
@@ -44,13 +44,13 @@
 */
 .classDjeesignMenu {
   display: block;
-  border: 1px solid;
-  border-radius: 5px;
-  width: auto;
-  border-color: #080808;
+  border-bottom: 1px solid;
+  width: 100%;
+  height: 100%;
+  border-color: #f96e5b;
   margin: 0;
   padding: 0;
-  background: #3f3f3f;
+  background-color: #3f3f3f;
 
 }
 
@@ -107,10 +107,67 @@
 }
 
 .classDjeesignMenu li.active a {
-  background: #080808;
+  color: #f96e5b !important;
 }
 
 .classDjeesignMenu li:hover a {
-  background: #080808;
+  color: #f96e5b !important;
+}
+
+/*
+  Styles du widget
+*/
+.classDjeesignWidget
+{
+    width:100%;
+    height:100%;    
+    position:absolute;
+    border: 1px solid #f96e5b;
+    background-color: #3f3f3f;
+    border-radius: 8px;
+}
+
+.classDjeesignWidgetFondTitre
+{
+    width:100%;                         
+    height:22px;
+    position:absolute;
+    border-radius: 8px 8px 0px 0px;
+    border: 1px solid #f96e5b;
+    background-color: #080808;
+   }
+
+.classDjeesignWidgetTitre
+{
+    width:100%;                         
+    position:absolute;
+    margin-top: 2px;
+    text-align: center;
+    font-family:Arial;
+    font-weight:normal;
+    font-size:14px;     
+}
+
+.classDjeesignWidgetContenu {
+  position: absolute;
+  width: 100%;
+  top: 27px;
+  padding-left: 5px;
+  padding-bottom: 20px;
+}
+
+.classDjeesignWidgetLigne {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+}
+
+.classDjeesignWidgetLigne img {
+  padding-right: 5px;
+  filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(315deg) brightness(113%) contrast(102%);
+}
+
+.classDjeesignWidgetLigne img:hover {
+  filter: invert(62%) sepia(45%) saturate(4103%) hue-rotate(324deg) brightness(101%) contrast(95%);
 }
 

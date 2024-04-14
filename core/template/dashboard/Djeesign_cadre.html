@@ -18,34 +18,20 @@
 
   <script type="text/javascript">
 
-    $(document).change(function (e) {
-      if (e.target.dataset.eqlogic_uid === "#uid#") {
-        initDisplay#uid#();
-      }
-    });
 
-    $(document).ready(function () {
-      initDisplay#uid#();
-    });
+    // Titre du cadre
+    //
+    if (is_object(cmd = document.querySelector('#IdDjeesignTitre#uid#'))) {
+      cmd.innerHTML = '#titre#';
+      cmd.style.color = '#clrTitre#';
+    }
 
-    function initDisplay#uid#()
-    {
+    // Icone du cadre
+    //
+    if (is_object(cmd = document.querySelector('#IdDjeesignIcone#uid#'))) {
 
-       // Titre du cadre
-      //
-      let titre = "#titre#";
-      let divTitre = $('#IdDjeesignTitre#uid#');
-      divTitre.empty();
-      divTitre.append(titre);
-      divTitre.css("color", "#clrTitre#");
-
-      // Icone du cadre
-      //
       let icone = "#icone#";
       icone = icone.trim();
-      let divIcone = $('#IdDjeesignIcone#uid#');
-      divIcone.empty();
-
       if (icone !== "") {
         let imgIcone = "";
         let nImg = icone.indexOf('.');
@@ -54,9 +40,8 @@
         else
           imgIcone = "<i style='font-size:32px;' class='icon " + icone + "'></i>";
 
-        divIcone.append(imgIcone);
+        cmd.innerHTML = imgIcone;
       }
-
     }
 
   </script>
@@ -64,4 +49,3 @@
 </div>
 
 <link rel="stylesheet" href="plugins/Djeesign/core/template/dashboard/Djeesign_#visuel#.css" />
-

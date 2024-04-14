@@ -64,7 +64,7 @@
                     enabled: false
                 },
                 data: [
-                #listeHistoGraphe1#
+                    #listeHistoGraphe1#
                 ]
             }, {
                 name: 'Val',
@@ -74,42 +74,37 @@
                     enabled: false
                 },
                 data: [
-                #listeHistoGraphe2#
+                    #listeHistoGraphe2#
                 ]
             }]
         });
 
-        $('body').on('cmd::update', function (_event, _options) {
-            $(_options).each(function () {
-                switch (this.cmd_id) {
-                    case "#idCmdGraphe1#":
-                        var date = new Date();
-                        var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
-                            date.getHours(), date.getMinutes(), date.getSeconds());
-                        var y = this.value;
-                        chart#uid#.series[0].addPoint([dateUTC, y], true);
-                        var n = chart#uid#.series[1].points.length - 1;
-                        if (n >= 0) {
-                            var lastY = chart#uid#.series[1].points[n].y;
-                            chart#uid#.series[1].addPoint([dateUTC, lastY], true);
-                        }
-                        break;
-                    case "#idCmdGraphe2#":
-                        var date = new Date();
-                        var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
-                            date.getHours(), date.getMinutes(), date.getSeconds());
-                        var y = this.value;
-                        chart#uid#.series[1].addPoint([dateUTC, y], true);
-                        var n = chart#uid#.series[0].points.length - 1;
-                        if (n >= 0) {
-                            var lastY = chart#uid#.series[0].points[n].y;
-                            chart#uid#.series[0].addPoint([dateUTC, lastY], true);
-                        }
-                        break;
-                }
-            });
-        });
+        jeedom.cmd.addUpdateFunction('#idCmdGraphe1#', function(_options) {
+            var date = new Date();
+            var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
+                date.getHours(), date.getMinutes(), date.getSeconds());
+            var y = _options.display_value;
+            var n = chart#uid#.series[1].points.length - 1;
+            if (n >= 0) {
+                var lastY = chart#uid#.series[1].points[n].y;
+                chart#uid#.series[1].addPoint([dateUTC, lastY], false);
+            }
+            chart#uid#.series[0].addPoint([dateUTC, y], true);
+        })
 
-    </script>
+        jeedom.cmd.addUpdateFunction('#idCmdGraphe2#', function(_options) {
+            var date = new Date();
+            var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
+                date.getHours(), date.getMinutes(), date.getSeconds());
+            var y = _options.display_value;
+            var n = chart#uid#.series[0].points.length - 1;
+            if (n >= 0) {
+                var lastY = chart#uid#.series[0].points[n].y;
+                chart#uid#.series[0].addPoint([dateUTC, lastY], false);
+            }
+            chart#uid#.series[1].addPoint([dateUTC, y], true);
+        })
+
+     </script>
 
 </div>
