@@ -83,11 +83,11 @@
             var date = new Date();
             var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
                 date.getHours(), date.getMinutes(), date.getSeconds());
-            var y = _options.display_value;
+            var y = _options.value;
             var n = chart#uid#.series[1].points.length - 1;
             if (n >= 0) {
                 var lastY = chart#uid#.series[1].points[n].y;
-                chart#uid#.series[1].addPoint([dateUTC, lastY], false);
+                chart#uid#.series[1].addPoint([dateUTC, lastY], true);
             }
             chart#uid#.series[0].addPoint([dateUTC, y], true);
         })
@@ -96,11 +96,11 @@
             var date = new Date();
             var dateUTC = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(),
                 date.getHours(), date.getMinutes(), date.getSeconds());
-            var y = _options.display_value;
+            var y = _options.value;
             var n = chart#uid#.series[0].points.length - 1;
             if (n >= 0) {
                 var lastY = chart#uid#.series[0].points[n].y;
-                chart#uid#.series[0].addPoint([dateUTC, lastY], false);
+                chart#uid#.series[0].addPoint([dateUTC, lastY], true);
             }
             chart#uid#.series[1].addPoint([dateUTC, y], true);
         })
