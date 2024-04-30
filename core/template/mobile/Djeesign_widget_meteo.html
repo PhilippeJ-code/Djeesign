@@ -34,7 +34,7 @@
     
     function Update#uid#idIconeMeteo(_options) {
 
-      if (_options.value == '') {
+      if (_options.display_value == '') {
         if (is_object(cmd = document.querySelector('#showIconeMeteo#uid#'))) {
           cmd.style.display = 'none';
         }
@@ -43,16 +43,16 @@
           cmd.style.display = 'block';
         }
         if (is_object(cmd = document.querySelector('#idIconeMeteo#uid#'))) {
-          cmd.src = _options.value;
+          cmd.src = _options.display_value;
         }
       }
     }
-    Update#uid#idIconeMeteo({ cmd_id: '#idIconeMeteo#', value: '#valIconeMeteo#', display_value: '#valIconeMeteo#'});
+    Update#uid#idIconeMeteo({ display_value: '#valIconeMeteo#'});
 
     jeedom.cmd.addUpdateFunction('#idTexteMeteo#', Update#uid#idTexteMeteo);
     function Update#uid#idTexteMeteo(_options) {
 
-      if (_options.value == '') {
+      if (_options.display_value == '') {
         if (is_object(cmd = document.querySelector('#showTexteMeteo#uid#'))) {
           cmd.style.display = 'none';
        }
@@ -61,12 +61,12 @@
           cmd.style.display = 'block';
         }
         if (is_object(cmd = document.querySelector('#idTexteMeteo#uid#'))) {
-          cmd.innerHTML = _options.value;
+          cmd.innerHTML = _options.display_value;
           cmd.style.color = "#clrTexteMeteo#";
         }
       }
     }
-    Update#uid#idTexteMeteo({ cmd_id: '#idTexteMeteo#', value: '#valTexteMeteo#', display_value: '#valTexteMeteo#'});
+    Update#uid#idTexteMeteo({ display_value: '#valTexteMeteo#'});
 
     console.log("#idTexteMeteo# : #valTexteMeteo#");
 

@@ -35,7 +35,7 @@
     
     function Update#uid##idTemperature# (_options) {
 
-      if (_options.value == 9999) {
+      if (_options.display_value == 9999) {
         if (is_object(cmd = document.querySelector('#showTemperature#uid#'))) {
           cmd.style.display = 'none';
         }
@@ -45,14 +45,14 @@
         }
         if (is_object(cmd = document.querySelector('#idTemperature#uid#'))) {
 
-          cmd.innerHTML = _options.value + '°';
+          cmd.innerHTML = _options.display_value + '°';
 
           if (is_object(cmd = document.querySelector('#showTemperature#uid# .classDjeesignWidgetLigne'))) {
             cmd.setAttribute('title', 'Date de valeur : ' + _options.valueDate + '<br>Date de collecte : ' + _options.collectDate);
           }
 
-          if ((_options.value < #temperatureMin#) ||
-            (_options.value > #temperatureMax#)) {
+          if ((_options.display_value < #temperatureMin#) ||
+            (_options.display_value > #temperatureMax#)) {
             cmd.style.color =  "red";
           } else {
             cmd.style.color = "#clrTemperature#";
@@ -60,13 +60,13 @@
         }
       }
     }
-    Update#uid##idTemperature#({ cmd_id: '#idTemperature#', value: '#valTemperature#', display_value: '#valTemperature#', valueDate: '#vdTemperature#', collectDate: '#cdTemperature#' });
+    Update#uid##idTemperature#({ display_value: '#valTemperature#', valueDate: '#vdTemperature#', collectDate: '#cdTemperature#' });
 
     jeedom.cmd.addUpdateFunction('#idHumidite#', Update#uid#idHumidite);
     
     function Update#uid#idHumidite(_options) {
 
-      if (_options.value == 9999) {
+      if (_options.display_value == 9999) {
         if (is_object(cmd = document.querySelector('#showHumidite#uid#'))) {
           cmd.style.display = 'none';
         }
@@ -76,14 +76,14 @@
         }
         if (is_object(cmd = document.querySelector('#idHumidite#uid#'))) {
 
-          cmd.innerHTML = _options.value + '°';
+          cmd.innerHTML = _options.display_value + '°';
 
           if (is_object(cmd = document.querySelector('#showHumidite#uid# .classDjeesignWidgetLigne'))) {
             cmd.setAttribute('title', 'Date de valeur : ' + _options.valueDate + '<br>Date de collecte : ' + _options.collectDate);
           }
 
-          if ((_options.value < #humiditeMin#) ||
-            (_options.value > #humiditeMax#)) {
+          if ((_options.display_value < #humiditeMin#) ||
+            (_options.display_value > #humiditeMax#)) {
             cmd.style.color =  "red";
           } else {
             cmd.style.color = "#clrHumidite#";
@@ -91,7 +91,7 @@
         }
       }
     }
-    Update#uid#idHumidite({ cmd_id: '#idHumidite#', value: '#valHumidite#', display_value: '#valHumidite#', valueDate: '#vdHumidite#', collectDate: '#cdHumidite#' });
+    Update#uid#idHumidite({ display_value: '#valHumidite#', valueDate: '#vdHumidite#', collectDate: '#cdHumidite#' });
 
     if (is_object(cmd = document.querySelector('#idTitre#uid#'))) {
       cmd.innerHTML = "#titreWidget#";

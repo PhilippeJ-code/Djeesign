@@ -30,7 +30,7 @@
     
     function Update#uid#idStatut(_options){
 
-      if (_options.value == 9999) {
+      if (_options.display_value == 9999) {
 
         if (is_object(cmd = document.querySelector('#idImgStatutOn#uid#'))) {
           cmd.style.display = 'none';
@@ -39,7 +39,7 @@
           cmd.style.display = 'none';
         }
       } else {
-        if (_options.value >= 1) {          
+        if (_options.display_value >= 1) {          
           if (is_object(cmd = document.querySelector('#idImgStatutOn#uid#'))) {
             cmd.style.display = 'inline';
           }
@@ -60,7 +60,7 @@
         }
       }
     }
-    Update#uid#idStatut({ cmd_id: '#idStatut#', value: '#valStatut#', display_value: '#valStatut#', valueDate: '#vdStatut#', collectDate: '#cdStatut#' });
+    Update#uid#idStatut({ display_value: '#valStatut#', valueDate: '#vdStatut#', collectDate: '#cdStatut#' });
 
     if (is_object(cmd = document.querySelector('#idTitre#uid#'))) {
       cmd.innerHTML = "#titreWidget#";
