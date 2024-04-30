@@ -26,7 +26,9 @@
 
   <script type="text/javascript">
 
-    jeedom.cmd.addUpdateFunction('#idStatut#', function (_options) {
+    jeedom.cmd.addUpdateFunction('#idStatut#', Update#uid#idStatut);
+    
+    function Update#uid#idStatut(_options){
 
       if (_options.value == 9999) {
 
@@ -57,8 +59,8 @@
           jeedom.cmd.displayDuration(_options.valueDate, cmd);
         }
       }
-    });
-    jeedom.cmd.refreshValue([{ cmd_id: '#idStatut#', value: '#valStatut#', display_value: '#valStatut#', valueDate: '#vdStatut#', collectDate: '#cdStatut#' }]);
+    }
+    Update#uid#idStatut({ cmd_id: '#idStatut#', value: '#valStatut#', display_value: '#valStatut#', valueDate: '#vdStatut#', collectDate: '#cdStatut#' });
 
     if (is_object(cmd = document.querySelector('#idTitre#uid#'))) {
       cmd.innerHTML = "#titreWidget#";

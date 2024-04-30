@@ -183,4 +183,8 @@
   filter: invert(62%) sepia(45%) saturate(4103%) hue-rotate(324deg) brightness(101%) contrast(95%);
 }
 
-
+.classDjeesignWidgetMeteoLigne {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+ }

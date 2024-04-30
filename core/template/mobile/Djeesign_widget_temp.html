@@ -31,7 +31,9 @@
 
   <script type="text/javascript">
 
-    jeedom.cmd.addUpdateFunction('#idTemperature#', function (_options) {
+    jeedom.cmd.addUpdateFunction('#idTemperature#', Update#uid##idTemperature# );
+    
+    function Update#uid##idTemperature# (_options) {
 
       if (_options.value == 9999) {
         if (is_object(cmd = document.querySelector('#showTemperature#uid#'))) {
@@ -57,10 +59,12 @@
           }
         }
       }
-    });
-    jeedom.cmd.refreshValue([{ cmd_id: '#idTemperature#', value: '#valTemperature#', display_value: '#valTemperature#', valueDate: '#vdTemperature#', collectDate: '#cdTemperature#' }]);
+    }
+    Update#uid##idTemperature#({ cmd_id: '#idTemperature#', value: '#valTemperature#', display_value: '#valTemperature#', valueDate: '#vdTemperature#', collectDate: '#cdTemperature#' });
 
-    jeedom.cmd.addUpdateFunction('#idHumidite#', function (_options) {
+    jeedom.cmd.addUpdateFunction('#idHumidite#', Update#uid#idHumidite);
+    
+    function Update#uid#idHumidite(_options) {
 
       if (_options.value == 9999) {
         if (is_object(cmd = document.querySelector('#showHumidite#uid#'))) {
@@ -86,8 +90,8 @@
           }
         }
       }
-    });
-    jeedom.cmd.refreshValue([{ cmd_id: '#idHumidite#', value: '#valHumidite#', display_value: '#valHumidite#', valueDate: '#vdHumidite#', collectDate: '#cdHumidite#' }]);
+    }
+    Update#uid#idHumidite({ cmd_id: '#idHumidite#', value: '#valHumidite#', display_value: '#valHumidite#', valueDate: '#vdHumidite#', collectDate: '#cdHumidite#' });
 
     if (is_object(cmd = document.querySelector('#idTitre#uid#'))) {
       cmd.innerHTML = "#titreWidget#";

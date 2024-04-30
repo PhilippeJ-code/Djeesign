@@ -1,0 +1,82 @@
+<div class="eqLogic eqLogic-widget allowResize allowReorderCmd #custom_layout# #eqLogic_class#" data-eqType="#eqType#"
+  data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#"
+  data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#"
+  style="width: #width#;height: #height#;#style#">
+
+  <div class="classDjeesignWidget">
+  </div>
+
+  <div class="classDjeesignWidgetFondTitre">
+  </div>
+
+  <div class="classDjeesignWidgetTitre">
+    <span id="idTitre#uid#">Titre</span>
+  </div>
+
+  <div class="classDjeesignWidgetContenu">
+
+    <div id="showIconeMeteo#uid#">
+      <span class="classDjeesignWidgetMeteoLigne">
+        <img id="idIconeMeteo#uid#">
+      </span>
+    </div>
+
+    <div id="showTexteMeteo#uid#">
+      <span class="classDjeesignWidgetMeteoLigne">
+        <span id="idTexteMeteo#uid#">??</span>
+      </span>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    jeedom.cmd.addUpdateFunction('#idIconeMeteo#', Update#uid#idIconeMeteo); 
+    
+    function Update#uid#idIconeMeteo(_options) {
+
+      if (_options.value == '') {
+        if (is_object(cmd = document.querySelector('#showIconeMeteo#uid#'))) {
+          cmd.style.display = 'none';
+        }
+      } else {
+        if (is_object(cmd = document.querySelector('#showIconeMeteo#uid#'))) {
+          cmd.style.display = 'block';
+        }
+        if (is_object(cmd = document.querySelector('#idIconeMeteo#uid#'))) {
+          cmd.src = _options.value;
+        }
+      }
+    }
+    Update#uid#idIconeMeteo({ cmd_id: '#idIconeMeteo#', value: '#valIconeMeteo#', display_value: '#valIconeMeteo#'});
+
+    jeedom.cmd.addUpdateFunction('#idTexteMeteo#', Update#uid#idTexteMeteo);
+    function Update#uid#idTexteMeteo(_options) {
+
+      if (_options.value == '') {
+        if (is_object(cmd = document.querySelector('#showTexteMeteo#uid#'))) {
+          cmd.style.display = 'none';
+       }
+      } else {
+        if (is_object(cmd = document.querySelector('#showTexteMeteo#uid#'))) {
+          cmd.style.display = 'block';
+        }
+        if (is_object(cmd = document.querySelector('#idTexteMeteo#uid#'))) {
+          cmd.innerHTML = _options.value;
+          cmd.style.color = "#clrTexteMeteo#";
+        }
+      }
+    }
+    Update#uid#idTexteMeteo({ cmd_id: '#idTexteMeteo#', value: '#valTexteMeteo#', display_value: '#valTexteMeteo#'});
+
+    console.log("#idTexteMeteo# : #valTexteMeteo#");
+
+    if (is_object(cmd = document.querySelector('#idTitre#uid#'))) {
+      cmd.innerHTML = "#titreWidget#";
+      cmd.style.color = "#clrTitre#";
+    }
+
+  </script>
+
+</div>
+
+<link rel="stylesheet" href="plugins/Djeesign/core/template/dashboard/Djeesign_#visuel#.css" />

@@ -109,7 +109,6 @@ class Djeesign extends eqLogic
       //
     public function postSave()
     {
-        log::add('Djeesign', 'info', 'postSave');
         $lock = $this->getCmd(null, 'allumer');
         if (!is_object($lock)) {
             $lock = new DjeesignCmd();
@@ -160,12 +159,17 @@ class Djeesign extends eqLogic
         }
         $version = jeedom::versionAlias($_version);
 
+		if ($replace['#height#'] == 'auto') {
+			$replace['#height#'] = '230px';
+		}
+
         $visuel = config::byKey('visuel', 'Djeesign');
         $typeDesign = $this->getConfiguration('typeDesign');
         
         if (($typeDesign !== "cadre")  && ($typeDesign !== "menu") &&
             ($typeDesign !== "mobile") && ($typeDesign !== "graphe") &&
-            ($typeDesign !== "widget_temp") && ($typeDesign !== "widget_lumi")) {
+            ($typeDesign !== "widget_temp") && ($typeDesign !== "widget_lumi") &&
+            ($typeDesign !== "widget_meteo")) {
             $typeDesign = "cadre";
         }
 
@@ -327,10 +331,8 @@ class Djeesign extends eqLogic
         }
 
         // Widget température
-          //
+        //
         if ($typeDesign === "widget_temp") {
-            $temperature = 9999;
-            $humidite = 9999;
 
             $cmdTemperature = $this->getConfiguration('tempInfoTemperature');
             $obj = cmd::byId(str_replace('#', '', $cmdTemperature));
@@ -383,6 +385,7 @@ class Djeesign extends eqLogic
         // Widget lumière
           //
         if ($typeDesign === "widget_lumi") {
+
             $cmdStatut = $this->getConfiguration('lumiInfoStatut');
             $obj = cmd::byId(str_replace('#', '', $cmdStatut));
             if (is_object($obj)) {
@@ -390,8 +393,7 @@ class Djeesign extends eqLogic
                 $replace["#idStatut#"] = $obj->getId();
                 $replace["#vdStatut#"] = $obj->getValueDate();
                 $replace["#cdStatut#"] = $obj->getCollectDate();
-                $replace["#idStatut#"] = $obj->getId();
-            } else {
+             } else {
                 $replace["#valStatut#"] = 9999;
                 $replace["#idStatut#"] = -1;
             }
@@ -415,6 +417,51 @@ class Djeesign extends eqLogic
 
             $obj = $this->getCmd(null, 'eteindre');
             $replace["#idEteindre#"] = $obj->getId();
+        }
+
+        // Widget météo
+        //
+        if ($typeDesign === "widget_meteo") {
+
+            $cmdTexteMeteo = $this->getConfiguration('texteMeteo');
+            $obj = cmd::byId(str_replace('#', '', $cmdTexteMeteo));
+            if (is_object($obj)) {
+                $replace["#valTexteMeteo#"] = $obj->execCmd();
+                $replace["#idTexteMeteo#"] = $obj->getId();
+            } else {
+                $replace["#valTexteMeteo#"] = '';
+                $replace["#idTexteMeteo#"] = -1;
+            }
+
+            $cmdIconeMeteo = $this->getConfiguration('iconeMeteo');
+            $obj = cmd::byId(str_replace('#', '', $cmdIconeMeteo));
+            if (is_object($obj)) {
+
+                $icone = 'plugins/Djeesign/core/img/day/' . ($obj->execCmd() - 1000 + 113) . '.png';
+     
+                $replace["#valIconeMeteo#"] = $icone;
+                $replace["#idIconeMeteo#"] = $obj->getId();
+            } else {
+
+                
+                $replace["#valIconeMeteo#"] = '';
+                $replace["#idIconeMeteo#"] = -1;
+            }
+
+            if ($visuel == 'Noir') {
+                $replace["#clrTitre#"] = "white";
+                $replace["#clrTexteMeteo#"] = "white";
+            } elseif ($visuel == 'Blanc') {
+                $replace["#clrTitre#"] = "darkgrey";
+                $replace["#clrTexteMeteo#"] = "darkgrey";
+            } else {
+                $replace["#clrTitre#"] = "white";
+                $replace["#clrTexteMeteo#"] = "#3c444d";
+            }
+
+
+            $replace["#titreWidget#"] = $this->getConfiguration('meteoTitreWidget');
+
         }
 
         return template_replace($replace, getTemplate('core', $version, 'Djeesign_' . $typeDesign, 'Djeesign'));

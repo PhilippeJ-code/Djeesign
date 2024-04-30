@@ -127,6 +127,7 @@
                   <option value="graphe">Graphe</option>
                   <option value="widget_temp">Widget température</option>
                   <option value="widget_lumi">Widget lumière</option>
+                  <option value="widget_meteo">Widget météo</option>
                 </select>
               </div>
             </div>
@@ -135,7 +136,7 @@
               Options du cadre
                 Titre et icone
             -->
-            <div id="typeDesignCadre">
+            <div id="typeDesignCadre" style="display: none;">
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Titre}}</label>
                 <div class="col-sm-3">
@@ -161,7 +162,7 @@
               Options du menu
                 Liste Ids Design et liste icones
             -->
-            <div id="typeDesignMenu">
+            <div id="typeDesignMenu" style="display: none;">
 
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Menu Vue}}</label>
@@ -212,7 +213,7 @@
               Options du graphe
                 Id de la commande info
             -->
-            <div id="typeDesignGraphe">
+            <div id="typeDesignGraphe" style="display: none;">
               <div class="form-group">
                 <label class="col-md-3 control-label">{{Commande info du graphe - 1}}</label>
                 <div class="col-md-6 input-group">
@@ -237,7 +238,7 @@
               Options du widget températures
                 id Température, humidité               
             -->
-            <div id="typeDesignWidgetTemp">
+            <div id="typeDesignWidgetTemp" style="display: none;">
 
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Titre}}</label>
@@ -249,7 +250,7 @@
 
               <div class="form-group">
                 <label class="col-md-3 control-label">{{Commande info température}}</label>
-                <div class="col-md-6 input-group">
+                <div class="col-md-3 input-group">
                   <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
                     data-l2key="tempInfoTemperature"></input>
                   <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
@@ -275,7 +276,7 @@
 
               <div class="form-group">
                 <label class="col-md-3 control-label">{{Commande info humidité}}</label>
-                <div class="col-md-6 input-group">
+                <div class="col-md-3 input-group">
                   <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
                     data-l2key="tempInfoHumidite"></input>
                   <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
@@ -305,7 +306,7 @@
               Options du widget lumière
                 id Statut               
             -->
-            <div id="typeDesignWidgetLumi">
+            <div id="typeDesignWidgetLumi" style="display: none;">
 
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Titre}}</label>
@@ -317,7 +318,7 @@
 
               <div class="form-group">
                 <label class="col-md-3 control-label">{{Commande info statut}}</label>
-                <div class="col-md-6 input-group">
+                <div class="col-md-3 input-group">
                   <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
                     data-l2key="lumiInfoStatut"></input>
                   <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
@@ -348,7 +349,42 @@
 
                 </div>
               </div>
+            </div>
+            <!--
+              Options du widget météo
+                Icone et texte
+            -->
+            <div id="typeDesignWidgetMeteo" style="display: none;">
 
+              <div class="form-group">
+                <label class="col-sm-3 control-label">{{Titre}}</label>
+                <div class="col-sm-3">
+                  <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                    data-l2key="meteoTitreWidget" placeholder="Titre du widget" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Commande icone météo}}</label>
+                <div class="col-md-3 input-group">
+                  <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
+                    data-l2key="iconeMeteo"></input>
+                  <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
+                    data-input="iconeMeteo"><i class="fas fa-list-alt"></i></a>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Commande texte météo}}</label>
+                <div class="col-md-3 input-group">
+                  <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
+                    data-l2key="texteMeteo"></input>
+                  <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
+                    data-input="texteMeteo"><i class="fas fa-list-alt"></i></a>
+                </div>
+              </div>
+
+            </div>
           </fieldset>
         </form>
       </div>
@@ -359,9 +395,11 @@
         <table id="table_cmd" class="table table-bordered table-condensed">
           <thead>
             <tr>
+              <th>{{Id}}</th>
               <th>{{Nom}}</th>
               <th>{{Type}}</th>
               <th>{{Paramètres}}</th>
+              <th>{{Etat}}</th>
               <th>{{Action}}</th>
             </tr>
           </thead>
@@ -369,7 +407,6 @@
           </tbody>
         </table>
       </div>
-      
     </div>
   </div>
 </div>

@@ -274,3 +274,10 @@
 .classDjeesignWidgetLigne img:hover {
   filter: invert(72%) sepia(94%) saturate(3128%) hue-rotate(326deg) brightness(103%) contrast(101%);
 }
+
+.classDjeesignWidgetMeteoLigne {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+ }
+
