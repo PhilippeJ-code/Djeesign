@@ -4,7 +4,7 @@
 	"description" : "Ce plugin permet de définir l'aspect visuel ( menu tuiles et graphes ) des designs.Vous voulez en changer, un clic suffit",
 	"licence" : "AGPL",
 	"author" : "PhilippeJ",
-	"require" : "4.4",
+	"require" : "4.4.5",
 	"category" : "programming",
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,
