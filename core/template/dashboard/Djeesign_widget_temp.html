@@ -31,9 +31,8 @@
 
   <script type="text/javascript">
 
-    jeedom.cmd.addUpdateFunction('#idTemperature#', Update#uid##idTemperature# );
-    
-    function Update#uid##idTemperature# (_options) {
+    jeedom.cmd.addUpdateFunction('#idTemperature#', Update#uid#idTemperature );  
+    function Update#uid#idTemperature (_options) {
 
       if (_options.display_value == 9999) {
         if (is_object(cmd = document.querySelector('#showTemperature#uid#'))) {
@@ -60,7 +59,7 @@
         }
       }
     }
-    Update#uid##idTemperature#({ display_value: '#valTemperature#', valueDate: '#vdTemperature#', collectDate: '#cdTemperature#' });
+    Update#uid#idTemperature({ display_value: '#valTemperature#', valueDate: '#vdTemperature#', collectDate: '#cdTemperature#' });
 
     jeedom.cmd.addUpdateFunction('#idHumidite#', Update#uid#idHumidite);
     

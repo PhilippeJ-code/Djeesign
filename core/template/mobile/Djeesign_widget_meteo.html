@@ -18,6 +18,7 @@
     <div id="showIconeMeteo#uid#">
       <span class="classDjeesignWidgetMeteoLigne">
         <img id="idIconeMeteo#uid#">
+        <span id="idTemperatureMeteo#uid#">??</span>
       </span>
     </div>
 
@@ -26,6 +27,7 @@
         <span id="idTexteMeteo#uid#">??</span>
       </span>
     </div>
+
   </div>
 
   <script type="text/javascript">
@@ -68,7 +70,27 @@
     }
     Update#uid#idTexteMeteo({ display_value: '#valTexteMeteo#'});
 
-    console.log("#idTexteMeteo# : #valTexteMeteo#");
+    jeedom.cmd.addUpdateFunction('#idTemperatureMeteo#', Update#uid#idTemperatureMeteo );  
+    function Update#uid#idTemperatureMeteo (_options) {
+
+      if (_options.display_value == 9999) {
+        if (is_object(cmd = document.querySelector('#showTemperatureMeteo#uid#'))) {
+          cmd.style.display = 'none';
+        }
+      } else {
+        if (is_object(cmd = document.querySelector('#showTemperatureMeteo#uid#'))) {
+          cmd.style.display = 'block';
+        }
+        if (is_object(cmd = document.querySelector('#idTemperatureMeteo#uid#'))) {
+
+          cmd.innerHTML = _options.display_value + '°';
+
+          if (is_object(cmd = document.querySelector('#showTemperatureMeteo#uid# .classDjeesignWidgetMeteoLigne'))) {
+            cmd.setAttribute('title', 'Date de valeur : ' + _options.valueDate + '<br>Date de collecte : ' + _options.collectDate);
+          }
+      }
+    }
+    Update#uid#idTemperatureMeteo({ display_value: '#valTemperature#', valueDate: '#vdTemperature#', collectDate: '#cdTemperature#' });
 
     if (is_object(cmd = document.querySelector('#idTitre#uid#'))) {
       cmd.innerHTML = "#titreWidget#";

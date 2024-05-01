@@ -448,6 +448,19 @@ class Djeesign extends eqLogic
                 $replace["#idIconeMeteo#"] = -1;
             }
 
+            $cmdTemperature = $this->getConfiguration('temperatureMeteo');
+            $obj = cmd::byId(str_replace('#', '', $cmdTemperature));
+            if (is_object($obj)) {
+                $replace["#valTemperatureMeteo#"] = $obj->execCmd();
+                $replace["#idTemperatureMeteo#"] = $obj->getId();
+                $replace["#vdTemperatureMeteo#"] = $obj->getValueDate();
+                $replace["#cdTemperatureMeteo#"] = $obj->getCollectDate();
+                $replace["#idTemperatureMeteo#"] = $obj->getId();
+            } else {
+                $replace["#valTemperatureMeteo#"] = 9999;
+                $replace["#idTemperatureMeteo#"] = -1;
+            }
+
             if ($visuel == 'Noir') {
                 $replace["#clrTitre#"] = "white";
                 $replace["#clrTexteMeteo#"] = "white";
@@ -458,7 +471,6 @@ class Djeesign extends eqLogic
                 $replace["#clrTitre#"] = "white";
                 $replace["#clrTexteMeteo#"] = "#3c444d";
             }
-
 
             $replace["#titreWidget#"] = $this->getConfiguration('meteoTitreWidget');
 
