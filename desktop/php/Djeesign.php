@@ -394,6 +394,26 @@
                 </div>
               </div>
 
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Commande info température min}}</label>
+                <div class="col-md-3 input-group">
+                  <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
+                    data-l2key="temperatureMeteoMin"></input>
+                  <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
+                    data-input="temperatureMeteoMin"><i class="fas fa-list-alt"></i></a>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">{{Commande info température max}}</label>
+                <div class="col-md-3 input-group">
+                  <input class="eqLogicAttr form-control input-sm" data-l1key="configuration"
+                    data-l2key="temperatureMeteoMax"></input>
+                  <a class="btn btn-default listEquipementInfo cursor btn-sm input-group-addon"
+                    data-input="temperatureMeteoMax"><i class="fas fa-list-alt"></i></a>
+                </div>
+              </div>
+
             </div>
           </fieldset>
         </form>

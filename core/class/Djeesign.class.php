@@ -461,6 +461,32 @@ class Djeesign extends eqLogic
                 $replace["#idTemperatureMeteo#"] = -1;
             }
 
+            $cmdTemperature = $this->getConfiguration('temperatureMeteoMin');
+            $obj = cmd::byId(str_replace('#', '', $cmdTemperature));
+            if (is_object($obj)) {
+                $replace["#valTemperatureMeteoMin#"] = $obj->execCmd();
+                $replace["#idTemperatureMeteoMin#"] = $obj->getId();
+                $replace["#vdTemperatureMeteoMin#"] = $obj->getValueDate();
+                $replace["#cdTemperatureMeteoMin#"] = $obj->getCollectDate();
+                $replace["#idTemperatureMeteoMin#"] = $obj->getId();
+            } else {
+                $replace["#valTemperatureMeteoMin#"] = 9999;
+                $replace["#idTemperatureMeteoMin#"] = -1;
+            }
+
+            $cmdTemperature = $this->getConfiguration('temperatureMeteoMax');
+            $obj = cmd::byId(str_replace('#', '', $cmdTemperature));
+            if (is_object($obj)) {
+                $replace["#valTemperatureMeteoMax#"] = $obj->execCmd();
+                $replace["#idTemperatureMeteoMax#"] = $obj->getId();
+                $replace["#vdTemperatureMeteoMax#"] = $obj->getValueDate();
+                $replace["#cdTemperatureMeteoMax#"] = $obj->getCollectDate();
+                $replace["#idTemperatureMeteoMax#"] = $obj->getId();
+            } else {
+                $replace["#valTemperatureMeteoMax#"] = 9999;
+                $replace["#idTemperatureMeteoMax#"] = -1;
+            }
+
             if ($visuel == 'Noir') {
                 $replace["#clrTitre#"] = "white";
                 $replace["#clrTexteMeteo#"] = "white";

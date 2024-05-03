@@ -28,7 +28,13 @@
     </div>
 
     <div id="showTemperatureMeteo#uid#">
-      <span id="idDjeesignTemperatureMeteo">??</span>
+        <span id="idDjeesignTemperatureMeteo">??</span>
+     </div>
+    <div id="showTemperatureMeteoMin#uid#">
+        <span id="idDjeesignTemperatureMeteoMin">??</span>
+    </div>
+    <div id="showTemperatureMeteoMax#uid#">
+         <span id="idDjeesignTemperatureMeteoMax">??</span>
     </div>
 
   </div>
@@ -75,7 +81,6 @@
 
     jeedom.cmd.addUpdateFunction('#idTemperatureMeteo#', Update#uid#idTemperatureMeteo );  
     function Update#uid#idTemperatureMeteo (_options) {
-
       if (_options.display_value == 9999) {
         if (is_object(cmd = document.querySelector('#showTemperatureMeteo#uid#'))) {
           cmd.style.display = 'none';
@@ -88,13 +93,57 @@
 
           cmd.innerHTML = _options.display_value + '°';
 
-          if (is_object(cmd = document.querySelector('#showTemperatureMeteo#uid# .classDjeesignWidgetMeteoLigne'))) {
+          if (is_object(cmd = document.querySelector('#showTemperatureMeteo#uid#'))) {
             cmd.setAttribute('title', 'Date de valeur : ' + _options.valueDate + '<br>Date de collecte : ' + _options.collectDate);
           }
         }
       }
     }
     Update#uid#idTemperatureMeteo({ display_value: '#valTemperatureMeteo#', valueDate: '#vdTemperatureMeteo#', collectDate: '#cdTemperatureMeteo#' });
+
+    jeedom.cmd.addUpdateFunction('#idTemperatureMeteoMin#', Update#uid#idTemperatureMeteoMin );  
+    function Update#uid#idTemperatureMeteoMin (_options) {
+      if (_options.display_value == 9999) {
+        if (is_object(cmd = document.querySelector('#showTemperatureMeteoMin#uid#'))) {
+          cmd.style.display = 'none';
+        }
+      } else {
+        if (is_object(cmd = document.querySelector('#showTemperatureMeteoMin#uid#'))) {
+          cmd.style.display = 'block';
+        }
+        if (is_object(cmd = document.querySelector('#idDjeesignTemperatureMeteoMin'))) {
+
+          cmd.innerHTML = _options.display_value + '°';
+
+          if (is_object(cmd = document.querySelector('#showTemperatureMeteoMin#uid#'))) {
+            cmd.setAttribute('title', 'Date de valeur : ' + _options.valueDate + '<br>Date de collecte : ' + _options.collectDate);
+          }
+        }
+      }
+    }
+    Update#uid#idTemperatureMeteoMin({ display_value: '#valTemperatureMeteoMin#', valueDate: '#vdTemperatureMeteoMin#', collectDate: '#cdTemperatureMeteoMin#' });
+
+    jeedom.cmd.addUpdateFunction('#idTemperatureMeteoMax#', Update#uid#idTemperatureMeteoMax );  
+    function Update#uid#idTemperatureMeteoMax (_options) {
+      if (_options.display_value == 9999) {
+        if (is_object(cmd = document.querySelector('#showTemperatureMeteoMax#uid#'))) {
+          cmd.style.display = 'none';
+        }
+      } else {
+        if (is_object(cmd = document.querySelector('#showTemperatureMeteoMax#uid#'))) {
+          cmd.style.display = 'block';
+        }
+        if (is_object(cmd = document.querySelector('#idDjeesignTemperatureMeteoMax'))) {
+
+          cmd.innerHTML = _options.display_value + '°';
+
+          if (is_object(cmd = document.querySelector('#showTemperatureMeteoMax#uid#'))) {
+            cmd.setAttribute('title', 'Date de valeur : ' + _options.valueDate + '<br>Date de collecte : ' + _options.collectDate);
+          }
+        }
+      }
+    }
+    Update#uid#idTemperatureMeteoMax({ display_value: '#valTemperatureMeteoMax#', valueDate: '#vdTemperatureMeteoMax#', collectDate: '#cdTemperatureMeteoMax#' });
 
     if (is_object(cmd = document.querySelector('#idTitre#uid#'))) {
       cmd.innerHTML = "#titreWidget#";
