@@ -28,6 +28,14 @@ function Djeesign_install()
 //
 function Djeesign_update()
 {
+    message::removeAll('Djeesign');
+    if (version_compare(jeedom::version(), '4.5', '<')) {
+        event::add('jeedom::alert', array(
+            'level' => 'danger',
+            'title' => __('[Plugin :: Djeesign] Version Jeedom', __FILE__),
+            'message' => __('[ATTENTION] Le plugin Djeesign ne supporte plus les versions de Jeedom < v4.4', __FILE__),
+        ));
+    }
 }
 
 // Fonction exécutée automatiquement après la suppression du plugin
