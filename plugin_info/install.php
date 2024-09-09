@@ -28,7 +28,6 @@ function Djeesign_install()
 //
 function Djeesign_update()
 {
-    message::removeAll('Djeesign');
     if (version_compare(jeedom::version(), '4.5', '<')) {
         event::add('jeedom::alert', array(
             'level' => 'danger',
