@@ -22,6 +22,13 @@ require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 //
 function Djeesign_install()
 {
+    if (version_compare(jeedom::version(), '4.4', '<')) {
+        event::add('jeedom::alert', array(
+            'level' => 'danger',
+            'title' => __('Plugin Djeesign Version Jeedom', __FILE__),
+            'message' => __('Le plugin Djeesign ne supporte pas les versions de Jeedom < v4.4', __FILE__),
+        ));
+    }
 }
 
 // Fonction exécutée automatiquement après la mise à jour du plugin
